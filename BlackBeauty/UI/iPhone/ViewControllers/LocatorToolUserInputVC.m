@@ -71,7 +71,9 @@
     //testLocationResultsVC* testVC = [[testLocationResultsVC alloc] init];
     
     testLocationResultsVC* testVC = [[testLocationResultsVC alloc] initWithUserPreference:MyLocation];
-    [self.navigationController pushViewController:testVC animated:YES];
+    //[self.navigationController pushViewController:testVC animated:YES];
+    
+    [self presentModalViewController:testVC animated:YES];
     
     [testVC release];
 }
@@ -84,7 +86,8 @@
 //    NSLog(@"yes");
     
     testLocationResultsVC* testVC = [[testLocationResultsVC alloc] initWithUserPreference:OtherLocation];
-    [self.navigationController pushViewController:testVC animated:YES];
+    //[self.navigationController pushViewController:testVC animated:YES];
+    [self presentModalViewController:testVC animated:YES];
     
     [testVC release];
 }

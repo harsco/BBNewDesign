@@ -126,15 +126,7 @@
     {
         MyIdentifier = @"cell4";
     }
-    else if(indexPath.section == 4)
-    {
-        MyIdentifier = @"cell5";
-    }
-    else if(indexPath.section == 5)
-    {
-        MyIdentifier = @"cell6";
-    }
-    
+        
     //UITableViewCell *cell;
     
     if(indexPath.row == 0)
@@ -181,11 +173,13 @@
             cell1.addressLabel.text = [NSString stringWithFormat:@"%f miles",[[locationsDetails objectAtIndex:indexPath.section] distanceFromInterestedLocation]];
             
             
-            [cell1.showMapButton setHidden:NO];
+             cell1.addressLabel.text = @"View Location On Map";
             
-            [cell1.showMapButton setTag:indexPath.section ];
+            //[cell1.showMapButton setHidden:YES];
             
-            [cell1.showMapButton addTarget:self action:@selector(onShowMapClicked:) forControlEvents:UIControlEventTouchUpInside];
+            //[cell1.showMapButton setTag:indexPath.section ];
+            
+           // [cell1.showMapButton addTarget:self action:@selector(onShowMapClicked:) forControlEvents:UIControlEventTouchUpInside];
             
             // cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier] autorelease];
             //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -252,15 +246,34 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-//    NSLog(@"section is %d",indexPath.section);
-//    NSLog(@"array is %f",[[locationsDetails objectAtIndex:indexPath.section] Latitude]);
-//    
-//    AppleMapsViewController* mapview = [[AppleMapsViewController alloc] initWithLocation:[locationsDetails objectAtIndex:indexPath.section]];
-//    
-//    [self presentModalViewController:mapview animated:YES];
-//    
-//    [mapview release];
+    if(indexPath.row == 3)
+    {
+        AppleMapsViewController* mapview = [[AppleMapsViewController alloc] initWithLocation:[locationsDetails objectAtIndex:indexPath.section]];
+        
+        [self presentModalViewController:mapview animated:YES];
+        
+        [mapview release];
+    }
     
+    else if (indexPath.row == 2)
+    {
+        UIDevice *device = [UIDevice currentDevice];
+        if ([[device model] isEqualToString:@"iPhone"] ) {
+            
+            NSString* telePhone = [[[locationsDetails objectAtIndex:indexPath.section] telephone] stringByReplacingOccurrencesOfString:@" " withString:@""];
+            
+            
+            
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",@"telprompt://",[telePhone stringByReplacingOccurrencesOfString:@"-" withString:@""]]];
+            NSLog(@"number is %@",[NSString stringWithFormat:@"%@%@",@"telprompt://",[telePhone stringByReplacingOccurrencesOfString:@"-" withString:@""]]);
+            [[UIApplication sharedApplication] openURL:url];
+        } else {
+            UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Alert" message:@"Your device doesn't support this feature." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [Notpermitted show];
+            [Notpermitted release];
+        }
+    }
+   
     
 }
 
