@@ -94,7 +94,7 @@
     
     if(delegate && [delegate respondsToSelector:@selector(didGetLocationOfUser:)])
     {
-        [delegate didGetDesiredLocations:[[AppStorage getInstance] getResellersNearMe:locationDesired]];
+        [delegate didGetDesiredLocations:[[AppStorage getInstance] getResellersNearMe:locationOfUser]];
     }
     
 //    if(delegate && [delegate respondsToSelector:@selector(didGetLocationOfUser:)])

@@ -173,7 +173,7 @@
             cell1.addressLabel.text = [NSString stringWithFormat:@"%f miles",[[locationsDetails objectAtIndex:indexPath.section] distanceFromInterestedLocation]];
             
             
-             cell1.addressLabel.text = @"View Location On Map";
+            // cell1.addressLabel.text = @"View Location On Map";
             
             //[cell1.showMapButton setHidden:YES];
             

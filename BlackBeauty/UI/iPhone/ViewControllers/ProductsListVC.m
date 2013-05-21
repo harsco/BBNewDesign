@@ -56,4 +56,13 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+#pragma mark button methods
+-(IBAction)onBBGlassClicked:(id)sender
+{
+    App_ProductsScreenVC* productsVC = [[App_ProductsScreenVC alloc] init];
+    
+    [self presentModalViewController:productsVC animated:YES];
+    
+}
+
 @end
