@@ -298,7 +298,6 @@
 			<string key="icon_home.png">{30, 30}</string>
 			<string key="icon_information.png">{30, 30}</string>
 		</dictionary>
-		<bool key="IBDocument.UseAutolayout">YES</bool>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
 </archive>

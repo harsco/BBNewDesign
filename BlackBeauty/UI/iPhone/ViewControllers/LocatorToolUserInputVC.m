@@ -14,7 +14,7 @@
 
 @implementation LocatorToolUserInputVC
 
-@synthesize byUserInputLocationButton,byUserLocationButton,headerView;
+@synthesize byUserInputLocationButton,byUserLocationButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,7 +40,11 @@
     
     UIBarButtonItem *backButton =[[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     
-    self.headerView.topItem.leftBarButtonItem = backButton;
+    self.navigationController.navigationBar.topItem.leftBarButtonItem = backButton;
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:245.0/255.0 green:132.0/255.0 blue:38.0/255.0 alpha:1];
+    self.title = @"Where To Buy";
+    
+//    self.headerView.topItem.leftBarButtonItem = backButton;
     
 }
 
@@ -68,28 +72,26 @@
 
 -(IBAction)onUserLocationButtonClicked:(id)sender
 {
-    //testLocationResultsVC* testVC = [[testLocationResultsVC alloc] init];
     
-    testLocationResultsVC* testVC = [[testLocationResultsVC alloc] initWithUserPreference:MyLocation];
-    //[self.navigationController pushViewController:testVC animated:YES];
+//    testLocationResultsVC* testVC = [[testLocationResultsVC alloc] initWithUserPreference:MyLocation];
+//    [self.navigationController pushViewController:testVC animated:YES];
+//    [testVC release];
     
-    [self presentModalViewController:testVC animated:YES];
+    locationSearchResultsVC* resultsVC = [[locationSearchResultsVC alloc] initWithUserPreference:MyLocation];
+    [self.navigationController pushViewController:resultsVC animated:YES];
+    [resultsVC release];
     
-    [testVC release];
 }
+
 -(IBAction)onUserInputLocationClicked:(id)sender
 {
-//    LocationManager* loc = [[LocationManager alloc] init];
-//    
-//    [loc doForwardGeoCodingOfPlace:@"tx,75038"];
-//    
-//    NSLog(@"yes");
+//    testLocationResultsVC* testVC = [[testLocationResultsVC alloc] initWithUserPreference:OtherLocation];
+//    [self.navigationController pushViewController:testVC animated:YES];
+//    [testVC release];
     
-    testLocationResultsVC* testVC = [[testLocationResultsVC alloc] initWithUserPreference:OtherLocation];
-    //[self.navigationController pushViewController:testVC animated:YES];
-    [self presentModalViewController:testVC animated:YES];
-    
-    [testVC release];
+    locationSearchResultsVC* resultsVC = [[locationSearchResultsVC alloc] initWithUserPreference:OtherLocation];
+    [self.navigationController pushViewController:resultsVC animated:YES];
+    [resultsVC release];
 }
 
 @end

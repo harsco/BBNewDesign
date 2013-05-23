@@ -40,7 +40,11 @@
     
     UIBarButtonItem *backButton =[[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
     
-    self.headerView.topItem.leftBarButtonItem = backButton;
+    self.navigationController.delegate = self;
+   self.navigationController.navigationBar.topItem.leftBarButtonItem = backButton;
+   self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:245.0/255.0 green:132.0/255.0 blue:38.0/255.0 alpha:1];
+   self.title = @"BLACK BEAUTY® Products";
+    
 
 }
 
@@ -61,8 +65,27 @@
 {
     App_ProductsScreenVC* productsVC = [[App_ProductsScreenVC alloc] init];
     
-    [self presentModalViewController:productsVC animated:YES];
+    //[self presentModalViewController:productsVC animated:YES];
+    
+    [self.navigationController pushViewController:productsVC animated:YES];
+    
+    [productsVC release];
     
 }
+
+#pragma mark Navigation Callback
+
+-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+                                       initWithTitle: @"Products"
+                                      style: UIBarButtonItemStyleBordered
+                                       target: nil action: nil];
+    
+    self.navigationItem.backBarButtonItem = backButton;
+    [backButton release];
+}
+
+
 
 @end

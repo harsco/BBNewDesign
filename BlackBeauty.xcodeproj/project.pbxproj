@@ -26,6 +26,7 @@
 		3A255AC8172FD9C70042875F /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A255AC7172FD9C70042875F /* LocationManager.m */; };
 		3A255ACA172FD9E90042875F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A255AC9172FD9E90042875F /* CoreLocation.framework */; };
 		3A4FE6D217436ED500A83E7E /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4FE6D117436ED500A83E7E /* pin.png */; };
+		3A5A5703174E2EEE00E9DB52 /* UserLocationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5A5702174E2EEE00E9DB52 /* UserLocationAnnotation.m */; };
 		3A5E88A917156DD800C531CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5E88A817156DD800C531CA /* UIKit.framework */; };
 		3A5E88AB17156DD800C531CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5E88AA17156DD800C531CA /* Foundation.framework */; };
 		3A5E88AD17156DD800C531CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5E88AC17156DD800C531CA /* CoreGraphics.framework */; };
@@ -41,6 +42,13 @@
 		3A6B16E817460EAE00D405D3 /* product_coal slag button_low@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6B16E517460EAE00D405D3 /* product_coal slag button_low@2x.png */; };
 		3A6B16E917460EAE00D405D3 /* product_copper slag button_low@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6B16E617460EAE00D405D3 /* product_copper slag button_low@2x.png */; };
 		3A6B16EA17460EAE00D405D3 /* product_crushed glass button_low@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6B16E717460EAE00D405D3 /* product_crushed glass button_low@2x.png */; };
+		3A6E7A4A174CE02400052941 /* locationSearchResultsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6E7A48174CE02200052941 /* locationSearchResultsVC.m */; };
+		3A6E7A4D174CE06000052941 /* locationSearchResultsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6E7A4C174CE05E00052941 /* locationSearchResultsVC.xib */; };
+		3A6E7A4F174CF0D100052941 /* storeResultsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6E7A4E174CF0D000052941 /* storeResultsTableCell.xib */; };
+		3A6E7A52174CF24600052941 /* storeResultsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6E7A51174CF24600052941 /* storeResultsTableCell.m */; };
+		3A6FBD1C174B6008003578DA /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A6FBD1B174B6008003578DA /* testImage.jpg */; };
+		3A6FBD1F174B8C35003578DA /* DefaultTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6FBD1E174B8C34003578DA /* DefaultTableCell.m */; };
+		3A6FBD21174B8C5A003578DA /* DefaultTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6FBD20174B8C5A003578DA /* DefaultTableCell.xib */; };
 		3A7B92B1173B8EE90097A6CA /* AppleMapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7B92AF173B8EE90097A6CA /* AppleMapsViewController.m */; };
 		3A7B92B4173B8F220097A6CA /* AppleMapsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A7B92B3173B8F220097A6CA /* AppleMapsViewController.xib */; };
 		3A7B92B6173B8F560097A6CA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A7B92B5173B8F560097A6CA /* MapKit.framework */; };
@@ -100,6 +108,9 @@
 		3ABDED7F17451D30002197B4 /* ProductsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDED7D17451D2F002197B4 /* ProductsListVC.m */; };
 		3ABDED8217451D64002197B4 /* ProductsListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ABDED8117451D64002197B4 /* ProductsListVC.xib */; };
 		3AC2D6BF1738E7B400B2A714 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC2D6BE1738E7B400B2A714 /* AddressBook.framework */; };
+		3ACDE0F4174BAEAE009703A2 /* call_us.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACDE0F3174BAEAE009703A2 /* call_us.png */; };
+		3ACDE0F8174BB396009703A2 /* imageFullScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACDE0F6174BB396009703A2 /* imageFullScreenVC.m */; };
+		3ACDE0FB174BB43E009703A2 /* imageFullScreenVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ACDE0FA174BB43E009703A2 /* imageFullScreenVC.xib */; };
 		3AD1494B174A67DD001CB67A /* App_ProductsScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD14949174A67DD001CB67A /* App_ProductsScreenVC.m */; };
 		3AD1494E174A6833001CB67A /* App_ProductsScreenVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AD1494D174A6833001CB67A /* App_ProductsScreenVC.xib */; };
 		3AF1E8F9173CDCFB00241C20 /* app_btn_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AF1E8F7173CDCFB00241C20 /* app_btn_back.png */; };
@@ -132,6 +143,8 @@
 		3A255AC7172FD9C70042875F /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationManager.m; path = Classes/LocationManager.m; sourceTree = "<group>"; };
 		3A255AC9172FD9E90042875F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3A4FE6D117436ED500A83E7E /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin.png; path = UI/iPhone/Resources/images/pin.png; sourceTree = "<group>"; };
+		3A5A5701174E2EEE00E9DB52 /* UserLocationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserLocationAnnotation.h; path = UI/iPhone/Views/UserLocationAnnotation.h; sourceTree = "<group>"; };
+		3A5A5702174E2EEE00E9DB52 /* UserLocationAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserLocationAnnotation.m; path = UI/iPhone/Views/UserLocationAnnotation.m; sourceTree = "<group>"; };
 		3A5E88A517156DD800C531CA /* BlackBeauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackBeauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A5E88A817156DD800C531CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3A5E88AA17156DD800C531CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -152,6 +165,16 @@
 		3A6B16E517460EAE00D405D3 /* product_coal slag button_low@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_coal slag button_low@2x.png"; path = "UI/iPhone/Resources/images/High Res/product_coal slag button_low@2x.png"; sourceTree = "<group>"; };
 		3A6B16E617460EAE00D405D3 /* product_copper slag button_low@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_copper slag button_low@2x.png"; path = "UI/iPhone/Resources/images/High Res/product_copper slag button_low@2x.png"; sourceTree = "<group>"; };
 		3A6B16E717460EAE00D405D3 /* product_crushed glass button_low@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_crushed glass button_low@2x.png"; path = "UI/iPhone/Resources/images/High Res/product_crushed glass button_low@2x.png"; sourceTree = "<group>"; };
+		3A6E7A47174CE02100052941 /* locationSearchResultsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = locationSearchResultsVC.h; path = UI/iPhone/ViewControllers/locationSearchResultsVC.h; sourceTree = "<group>"; };
+		3A6E7A48174CE02200052941 /* locationSearchResultsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = locationSearchResultsVC.m; path = UI/iPhone/ViewControllers/locationSearchResultsVC.m; sourceTree = "<group>"; };
+		3A6E7A4C174CE05E00052941 /* locationSearchResultsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = locationSearchResultsVC.xib; path = UI/iPhone/Resources/Nib/locationSearchResultsVC.xib; sourceTree = "<group>"; };
+		3A6E7A4E174CF0D000052941 /* storeResultsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = storeResultsTableCell.xib; path = UI/iPhone/Resources/Nib/storeResultsTableCell.xib; sourceTree = "<group>"; };
+		3A6E7A50174CF24600052941 /* storeResultsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = storeResultsTableCell.h; path = UI/iPhone/Views/storeResultsTableCell.h; sourceTree = "<group>"; };
+		3A6E7A51174CF24600052941 /* storeResultsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = storeResultsTableCell.m; path = UI/iPhone/Views/storeResultsTableCell.m; sourceTree = "<group>"; };
+		3A6FBD1B174B6008003578DA /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = testImage.jpg; path = UI/iPhone/Resources/images/testImage.jpg; sourceTree = "<group>"; };
+		3A6FBD1D174B8C34003578DA /* DefaultTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultTableCell.h; path = UI/iPhone/Views/DefaultTableCell.h; sourceTree = "<group>"; };
+		3A6FBD1E174B8C34003578DA /* DefaultTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultTableCell.m; path = UI/iPhone/Views/DefaultTableCell.m; sourceTree = "<group>"; };
+		3A6FBD20174B8C5A003578DA /* DefaultTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DefaultTableCell.xib; path = UI/iPhone/Resources/Nib/DefaultTableCell.xib; sourceTree = "<group>"; };
 		3A7B92AE173B8EE90097A6CA /* AppleMapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppleMapsViewController.h; path = UI/iPhone/ViewControllers/AppleMapsViewController.h; sourceTree = "<group>"; };
 		3A7B92AF173B8EE90097A6CA /* AppleMapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppleMapsViewController.m; path = UI/iPhone/ViewControllers/AppleMapsViewController.m; sourceTree = "<group>"; };
 		3A7B92B3173B8F220097A6CA /* AppleMapsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AppleMapsViewController.xib; path = UI/iPhone/Resources/Nib/AppleMapsViewController.xib; sourceTree = "<group>"; };
@@ -221,6 +244,10 @@
 		3ABDED7D17451D2F002197B4 /* ProductsListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductsListVC.m; path = UI/iPhone/ViewControllers/ProductsListVC.m; sourceTree = "<group>"; };
 		3ABDED8117451D64002197B4 /* ProductsListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductsListVC.xib; path = UI/iPhone/Resources/Nib/ProductsListVC.xib; sourceTree = "<group>"; };
 		3AC2D6BE1738E7B400B2A714 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		3ACDE0F3174BAEAE009703A2 /* call_us.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = call_us.png; path = UI/iPhone/Resources/images/call_us.png; sourceTree = "<group>"; };
+		3ACDE0F5174BB396009703A2 /* imageFullScreenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imageFullScreenVC.h; path = UI/iPhone/ViewControllers/imageFullScreenVC.h; sourceTree = "<group>"; };
+		3ACDE0F6174BB396009703A2 /* imageFullScreenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = imageFullScreenVC.m; path = UI/iPhone/ViewControllers/imageFullScreenVC.m; sourceTree = "<group>"; };
+		3ACDE0FA174BB43E009703A2 /* imageFullScreenVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = imageFullScreenVC.xib; path = UI/iPhone/Resources/Nib/imageFullScreenVC.xib; sourceTree = "<group>"; };
 		3AD14948174A67DC001CB67A /* App_ProductsScreenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = App_ProductsScreenVC.h; path = UI/iPhone/ViewControllers/App_ProductsScreenVC.h; sourceTree = "<group>"; };
 		3AD14949174A67DD001CB67A /* App_ProductsScreenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = App_ProductsScreenVC.m; path = UI/iPhone/ViewControllers/App_ProductsScreenVC.m; sourceTree = "<group>"; };
 		3AD1494D174A6833001CB67A /* App_ProductsScreenVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = App_ProductsScreenVC.xib; path = UI/iPhone/Resources/Nib/App_ProductsScreenVC.xib; sourceTree = "<group>"; };
@@ -289,6 +316,10 @@
 				3ABDED7D17451D2F002197B4 /* ProductsListVC.m */,
 				3AD14948174A67DC001CB67A /* App_ProductsScreenVC.h */,
 				3AD14949174A67DD001CB67A /* App_ProductsScreenVC.m */,
+				3ACDE0F5174BB396009703A2 /* imageFullScreenVC.h */,
+				3ACDE0F6174BB396009703A2 /* imageFullScreenVC.m */,
+				3A6E7A47174CE02100052941 /* locationSearchResultsVC.h */,
+				3A6E7A48174CE02200052941 /* locationSearchResultsVC.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -305,6 +336,9 @@
 		3A255A9F172FACA40042875F /* Nib */ = {
 			isa = PBXGroup;
 			children = (
+				3A6E7A4C174CE05E00052941 /* locationSearchResultsVC.xib */,
+				3ACDE0FA174BB43E009703A2 /* imageFullScreenVC.xib */,
+				3A6FBD20174B8C5A003578DA /* DefaultTableCell.xib */,
 				3AD1494D174A6833001CB67A /* App_ProductsScreenVC.xib */,
 				3ABDED8117451D64002197B4 /* ProductsListVC.xib */,
 				3A7B92B3173B8F220097A6CA /* AppleMapsViewController.xib */,
@@ -318,6 +352,7 @@
 				3A255AA2172FAE920042875F /* rootTab.xib */,
 				3AB7BF0E1733CA1A00029A68 /* addressCell.xib */,
 				3AB7BF191733F4D800029A68 /* addressViewCell.xib */,
+				3A6E7A4E174CF0D000052941 /* storeResultsTableCell.xib */,
 			);
 			name = Nib;
 			sourceTree = "<group>";
@@ -325,6 +360,8 @@
 		3A255AA0172FACA90042875F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3ACDE0F3174BAEAE009703A2 /* call_us.png */,
+				3A6FBD1B174B6008003578DA /* testImage.jpg */,
 				3A4FE6D117436ED500A83E7E /* pin.png */,
 				3AF1E8F7173CDCFB00241C20 /* app_btn_back.png */,
 				3AF1E8F8173CDCFB00241C20 /* app_btn_back@2x.png */,
@@ -476,12 +513,18 @@
 		3AB7BF0D1733C9F200029A68 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3A6FBD1D174B8C34003578DA /* DefaultTableCell.h */,
+				3A6FBD1E174B8C34003578DA /* DefaultTableCell.m */,
 				3AB7BF101733CBB800029A68 /* addressCell.h */,
 				3AB7BF111733CBB800029A68 /* addressCell.m */,
 				3AB7BF1B1733F55E00029A68 /* addressViewCell.h */,
 				3AB7BF1C1733F55E00029A68 /* addressViewCell.m */,
 				3AF1E8FB173CDED000241C20 /* BBStoreAnnotation.h */,
 				3AF1E8FC173CDED000241C20 /* BBStoreAnnotation.m */,
+				3A6E7A50174CF24600052941 /* storeResultsTableCell.h */,
+				3A6E7A51174CF24600052941 /* storeResultsTableCell.m */,
+				3A5A5701174E2EEE00E9DB52 /* UserLocationAnnotation.h */,
+				3A5A5702174E2EEE00E9DB52 /* UserLocationAnnotation.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -608,6 +651,12 @@
 				3A6B16E917460EAE00D405D3 /* product_copper slag button_low@2x.png in Resources */,
 				3A6B16EA17460EAE00D405D3 /* product_crushed glass button_low@2x.png in Resources */,
 				3AD1494E174A6833001CB67A /* App_ProductsScreenVC.xib in Resources */,
+				3A6FBD1C174B6008003578DA /* testImage.jpg in Resources */,
+				3A6FBD21174B8C5A003578DA /* DefaultTableCell.xib in Resources */,
+				3ACDE0F4174BAEAE009703A2 /* call_us.png in Resources */,
+				3ACDE0FB174BB43E009703A2 /* imageFullScreenVC.xib in Resources */,
+				3A6E7A4D174CE06000052941 /* locationSearchResultsVC.xib in Resources */,
+				3A6E7A4F174CF0D100052941 /* storeResultsTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,6 +687,11 @@
 				3AF1E8FD173CDED000241C20 /* BBStoreAnnotation.m in Sources */,
 				3ABDED7F17451D30002197B4 /* ProductsListVC.m in Sources */,
 				3AD1494B174A67DD001CB67A /* App_ProductsScreenVC.m in Sources */,
+				3A6FBD1F174B8C35003578DA /* DefaultTableCell.m in Sources */,
+				3ACDE0F8174BB396009703A2 /* imageFullScreenVC.m in Sources */,
+				3A6E7A4A174CE02400052941 /* locationSearchResultsVC.m in Sources */,
+				3A6E7A52174CF24600052941 /* storeResultsTableCell.m in Sources */,
+				3A5A5703174E2EEE00E9DB52 /* UserLocationAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

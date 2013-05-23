@@ -13,6 +13,7 @@
 @synthesize delegate;
 
 
+
 -(void)getResellersNearMYLocation
 {
     if([CLLocationManager locationServicesEnabled] == NO)
@@ -45,17 +46,41 @@
 
 -(void)getResellersNearThePlace:(NSString*)place
 {
+    
+    //special flow for Pincode as it produces accurate results
+    
+    if([self isStringNumeric:place])
+    {
+        place = [place stringByAppendingFormat:@"%@",@",United States"];
+    }
+    
     [self doForwardGeoCodingOfPlace:place];
     
+}
+
+-(BOOL)isStringNumeric:(NSString*)string
+{
+    NSNumberFormatter * nf = [[NSNumberFormatter alloc] init];
+    [nf setNumberStyle:NSNumberFormatterDecimalStyle];
+    
+    NSNumber * goodNumber = [nf numberFromString:string];
+    
+    if(goodNumber)
+        return YES;
+    else
+        return NO;
 }
 
 
 -(void)updateLocationsSetToUI
 {
-    if(delegate && [delegate respondsToSelector:@selector(didGetLocationOfUser:)])
+    if(delegate && [delegate respondsToSelector:@selector(didGetDesiredLocations:nearLocation:)])
     {
-        [delegate didGetDesiredLocations:[[AppStorage getInstance] getResellersNearMe:locationDesired]];
+        //[delegate didGetDesiredLocations:[[AppStorage getInstance] getResellersNearMe:locationDesired]];
+        
+        [delegate didGetDesiredLocations:[[AppStorage getInstance] getResellersNearMe:locationDesired] nearLocation:locationDesired];
     }
+    
 }
 
 
@@ -83,26 +108,30 @@
     
     //NSMutableDictionary* locationDictionary = [[NSMutableDictionary alloc] init];
     
-    Location* locationOfUser = [[Location alloc] init];
+     locationDesired = [[Location alloc] init];
     
-    locationOfUser.Latitude = newLocation.coordinate.latitude;
-    locationOfUser.Longitude = newLocation.coordinate.longitude;
+    locationDesired.Latitude = newLocation.coordinate.latitude;
+    locationDesired.Longitude = newLocation.coordinate.longitude;
 
 //    [locationDictionary setValue:latitude forKey:@"latitude"];
 //    [locationDictionary setValue:longitude forKey:@"longitude"];
            // return locationDictionary;
     
-    if(delegate && [delegate respondsToSelector:@selector(didGetLocationOfUser:)])
-    {
-        [delegate didGetDesiredLocations:[[AppStorage getInstance] getResellersNearMe:locationOfUser]];
-    }
+    [self doReverseGeoCoding:locationDesired];
     
-//    if(delegate && [delegate respondsToSelector:@selector(didGetLocationOfUser:)])
+//    if(self.delegate && [self.delegate respondsToSelector:@selector(didGetDesiredLocations:nearLocation:)])
 //    {
-//        [delegate didGetLocationOfUser:locationOfUser];
+//        [delegate didGetDesiredLocations:[[AppStorage getInstance] getResellersNearMe:locationOfUser] nearLocation:locationOfUser];
 //    }
+//    
+////    if(delegate && [delegate respondsToSelector:@selector(didGetLocationOfUser:)])
+////    {
+////        [delegate didGetLocationOfUser:locationOfUser];
+////    }
+//    
+//    [locationOfUser release];
     
-    [locationOfUser release];
+   
     
 }
 
@@ -111,14 +140,40 @@
 {
     if(delegate && [delegate respondsToSelector:@selector(didFailToGetLocationOfUser:)])
     {
-        [delegate didFailToGetLocationOfUser:[error localizedDescription]];
+        [delegate didFailToGetDesiredLocations:[error localizedDescription]];
     }
+}
+
+
+-(void)doReverseGeoCoding:(Location*)location
+{
+    CLGeocoder* reverseGeoCoder = [[CLGeocoder alloc] init];
+    
+    CLLocation* locObj = [[CLLocation alloc] initWithLatitude:location.Latitude longitude:location.Longitude];
+    
+    [reverseGeoCoder reverseGeocodeLocation:locObj completionHandler:^(NSArray *placemarks, NSError *error) {
+         NSLog(@"Received placemarks: %@", placemarks);
+        CLPlacemark* placemark = [placemarks objectAtIndex:0];
+        if (placemark) {
+            //Using blocks, get zip code
+            //NSString* zipCode = [placemark.addressDictionary objectForKey:(NSString*)kABPersonAddressZIPKey];
+            
+            location.name = placemark.locality;
+            
+            NSLog(@"placemarks is %@",placemark.locality);
+            
+             [self updateLocationsSetToUI];
+            
+        }
+    }];
 }
 
 -(void)doForwardGeoCodingOfPlace:(NSString*)place
 {
     CLGeocoder* geoCoder = [[CLGeocoder alloc] init];
     locationDesired = [[Location alloc] init];
+    
+    NSLog(@"place is %@",place);
     
   /*  NSDictionary *locationDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                         place, kABPersonAddressStateKey,
@@ -201,9 +256,9 @@
                               errorString = @"Please check Netwrork Connection";
                         
                          
-                         if(delegate && [delegate respondsToSelector:@selector(didFailToGetLocationOfUser:)])
+                         if(delegate && [delegate respondsToSelector:@selector(didFailToGetDesiredLocations:)])
                          {
-                             [delegate didFailToGetLocationOfUser:errorString];
+                             [delegate didFailToGetDesiredLocations:errorString];
                          }
                      }
                      
@@ -214,6 +269,7 @@
                              // Process the placemark.
                              
                             // NSLog(@"count is %d",[placemarks count]);
+                             
                              CLPlacemark *placemark = [placemarks objectAtIndex:0];
                              CLLocation *location = placemark.location;
                              CLLocationCoordinate2D coordinate = location.coordinate;
@@ -224,9 +280,9 @@
                              {
                                  
                                  NSString* errorString = @"Please Select a location in US"; 
-                                 if(delegate && [delegate respondsToSelector:@selector(didFailToGetLocationOfUser:)])
+                                 if(delegate && [delegate respondsToSelector:@selector(didFailToGetDesiredLocations:)])
                                  {
-                                     [delegate didFailToGetLocationOfUser:errorString];
+                                     [delegate didFailToGetDesiredLocations:errorString];
                                  }
                              }
                              
@@ -234,6 +290,15 @@
                                  
                                  locationDesired.Latitude = coordinate.latitude;
                                  locationDesired.Longitude = coordinate.longitude;
+                                 locationDesired.name = placemark.locality;
+                                 NSLog(@"name is %@", locationDesired.name);
+                                 NSLog(@"placemark.ISOcountryCode %@",placemark.ISOcountryCode);
+                                 NSLog(@"placemark.country %@",placemark.country);
+                                 NSLog(@"placemark.locality %@",placemark.locality);
+                                 NSLog(@"placemark.administrativeArea %@",placemark.administrativeArea);
+                                 NSLog(@"placemark.subadmin %@",placemark.subAdministrativeArea);
+                                 NSLog(@"placemark.subLocality %@",placemark.subLocality);
+                                 NSLog(@"placemark.subThoroughfare %@",placemark.subThoroughfare);
                                  
                                  [self updateLocationsSetToUI];
 

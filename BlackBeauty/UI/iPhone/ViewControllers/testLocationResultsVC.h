@@ -13,7 +13,7 @@
 #import "addressViewCell.h"
 #import "AppleMapsViewController.h"
 
-@interface testLocationResultsVC : UIViewController<UITableViewDataSource,UITableViewDelegate,locationProtocol,UISearchBarDelegate>
+@interface testLocationResultsVC : UIViewController<UITableViewDataSource,UITableViewDelegate,locationSearchResultsProtocol,UISearchBarDelegate>
 {
     IBOutlet UITableView* locationResultsTable;
     IBOutlet UISearchBar* locationsSearchBar;

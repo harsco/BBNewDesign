@@ -14,11 +14,14 @@
     CLLocationCoordinate2D coordinate;
 //    NSString* title;
 //    NSString* subTitle;
+    BOOL isUserLocation;
 }
 
 @property(nonatomic,readwrite)CLLocationCoordinate2D coordinate;
 -(id)initWithLocation:(CLLocationCoordinate2D)location;
 @property(nonatomic,retain)NSString* title;
 @property(nonatomic,retain)NSString* subTitle;
+@property(nonatomic)BOOL isUserLocation;
+
 
 @end

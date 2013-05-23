@@ -317,20 +317,8 @@
 }
 
 #pragma mark Protocol Callbacks
--(void)didGetLocationOfUser:(Location *)locationDictionary
-{
-    [fetchingResultsAlert dismissWithClickedButtonIndex:0 animated:YES];
-    
-    //[fetchingResultsAlert release];
-    
-     locationsDetails = [[[AppStorage getInstance] getResellersNearMe:locationDictionary] retain];
-    
-    //NSLog(@"count is %d",[locationsDetails count]);
-    
-    [locationResultsTable reloadData];
-}
 
--(void)didFailToGetLocationOfUser:(NSString *)error
+-(void)didFailToGetDesiredLocations:(NSString *)error
 {
     //Log errors
     [fetchingResultsAlert dismissWithClickedButtonIndex:0 animated:YES];
@@ -341,7 +329,7 @@
     [errorAlert release];
 }
 
--(void)didGetDesiredLocations:(NSMutableArray*)desiredLocationsArray
+-(void)didGetDesiredLocations:(NSMutableArray *)desiredLocationsArray nearLocation:(Location *)location
 {
    // NSLog(@"count is %d",[desiredLocationsArray count]);
     [fetchingResultsAlert dismissWithClickedButtonIndex:0 animated:YES];

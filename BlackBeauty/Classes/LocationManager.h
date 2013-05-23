@@ -13,19 +13,19 @@
 #import "AppStorage.h"
 
 
-@protocol locationProtocol ;
-
+//@protocol locationProtocol ;
+@protocol locationSearchResultsProtocol;
 
 @interface LocationManager : NSObject<CLLocationManagerDelegate>
 {
     CLLocationManager *locationManager;
-    id <locationProtocol> delegate;
+    id<locationSearchResultsProtocol>delegate;
     
     Location* locationDesired;
 }
 
 @property (nonatomic, retain) CLLocationManager *locationManager;
-@property(nonatomic,retain)id<locationProtocol>delegate;
+@property(nonatomic,retain) id<locationSearchResultsProtocol>delegate;
 
 
 -(void)getResellersNearMYLocation;
@@ -35,10 +35,16 @@
 @end
 
 
-@protocol locationProtocol <NSObject>
+@protocol locationSearchResultsProtocol <NSObject>
 
--(void)didGetLocationOfUser:(Location*)locationDictionary;
--(void)didFailToGetLocationOfUser:(NSString*)error;
--(void)didGetDesiredLocations:(NSMutableArray*)desiredLocationsArray;
+-(void)didGetDesiredLocations:(NSMutableArray*)desiredLocationsArray nearLocation:(Location*)location;
+-(void)didFailToGetDesiredLocations:(NSString*)error;
 
 @end
+
+//@protocol locationProtocol <NSObject>
+
+//-(void)didFailToGetLocationOfUser:(NSString*)error;
+//-(void)didGetDesiredLocations:(NSMutableArray*)desiredLocationsArray;
+
+//@end

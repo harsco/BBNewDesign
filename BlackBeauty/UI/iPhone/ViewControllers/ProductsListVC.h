@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "App_ProductsScreenVC.h"
 
-@interface ProductsListVC : UIViewController
+@interface ProductsListVC : UIViewController<UINavigationControllerDelegate>
 {
      IBOutlet UINavigationBar* headerView;
 }

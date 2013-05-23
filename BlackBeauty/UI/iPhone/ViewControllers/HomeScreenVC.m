@@ -29,31 +29,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    //Configure the Navigation Header programatically
-//    self.navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
-//    self.navigationController.navigationItem.title = @"Black Beauty";
-//    self.title = @"Black Beauty";
-//    
-//   self.headerView.topItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Nav_Logo"]];
-//    
-//    
-//    UIImage* image = [UIImage imageNamed:@"grid@2x"];
-//    CGRect frameimg = CGRectMake(0, 0, 20, 20);
-//    
-//    UIButton *button = [[UIButton alloc] initWithFrame:frameimg];
-//    [button setBackgroundImage:image forState:UIControlStateNormal];
-//    [button addTarget:self action:@selector(onBackClick:)
-//     forControlEvents:UIControlEventTouchUpInside];
-//    [button setShowsTouchWhenHighlighted:YES];
-//    
-//    UIBarButtonItem *backButton =[[[UIBarButtonItem alloc] initWithCustomView:button] autorelease];
-//    
-//    self.headerView.topItem.leftBarButtonItem = backButton;
-    
-    //self.headerView.topItem setTitleView:<#(UIView *)#>
-    
-    //[self.headerView setBackgroundImage:[UIImage imageNamed:@"Nav_Logo"] forBarMetrics:UIBarMetricsDefault];
 
 }
 
@@ -73,11 +48,11 @@
     //Push the screen which takes User Inputs for the search
     LocatorToolUserInputVC* userInputVC = [[LocatorToolUserInputVC alloc] init];
     
-     userInputVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    rootNavigationController = [[UINavigationController alloc] initWithRootViewController:userInputVC];
     
-    //[self.navigationController pushViewController:userInputVC animated:YES];
+    rootNavigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
-    [self presentModalViewController:userInputVC animated:YES];
+    [self presentModalViewController:rootNavigationController animated:YES];
     
     [userInputVC release];
     
@@ -86,9 +61,11 @@
 {
     ContactUs* testContact = [[ContactUs alloc] init];
     
-    testContact.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    rootNavigationController = [[UINavigationController alloc] initWithRootViewController:testContact];
     
-    [self.navigationController pushViewController:testContact animated:YES];
+    rootNavigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    [self presentModalViewController:rootNavigationController animated:YES];
     
     [testContact release];
     
@@ -105,12 +82,16 @@
 -(IBAction)onProductsButtonClicked:(id)sender
 {
     ProductsListVC* productsScreen = [[ProductsListVC alloc] init];
+   
     
-    productsScreen.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+   rootNavigationController = [[UINavigationController alloc] initWithRootViewController:productsScreen];
     
-    [self presentModalViewController:productsScreen animated:YES];
+    rootNavigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    [self presentModalViewController:rootNavigationController animated:YES];
     
     [productsScreen release];
+    [rootNavigationController release];
 }
 
 -(IBAction)onPrivacyButtonClicked:(id)sender

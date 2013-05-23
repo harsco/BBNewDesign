@@ -19,6 +19,8 @@
 {
     IBOutlet UINavigationBar* headerView;
     IBOutlet UIButton* privacyButton;
+    
+    UINavigationController* rootNavigationController;
 }
 
 @property(nonatomic,retain)IBOutlet UINavigationBar* headerView;

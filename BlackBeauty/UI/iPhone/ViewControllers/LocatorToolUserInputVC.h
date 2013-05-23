@@ -9,18 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "testLocationResultsVC.h"
 #import "LocationManager.h"
+#import "locationSearchResultsVC.h"
 
 @interface LocatorToolUserInputVC : UIViewController
 {
     UIButton* byUserLocationButton;
     UIButton* byUserInputLocationButton;
-    IBOutlet UINavigationBar* headerView;
+   // IBOutlet UINavigationBar* headerView;
     
 }
 
 @property(nonatomic,retain)IBOutlet UIButton* byUserLocationButton;
 @property(nonatomic,retain)IBOutlet UIButton* byUserInputLocationButton;
-@property(nonatomic,retain)IBOutlet UINavigationBar* headerView;
+//@property(nonatomic,retain)IBOutlet UINavigationBar* headerView;
 
 -(IBAction)onUserLocationButtonClicked:(id)sender;
 -(IBAction)onUserInputLocationClicked:(id)sender;

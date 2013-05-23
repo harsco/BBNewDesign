@@ -9,7 +9,7 @@
 #import "BBStoreAnnotation.h"
 
 @implementation BBStoreAnnotation
-@synthesize coordinate,title,subTitle;
+@synthesize coordinate,title,subTitle,isUserLocation;
 
 
 //- (CLLocationCoordinate2D)coordinate;
