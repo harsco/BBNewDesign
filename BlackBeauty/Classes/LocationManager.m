@@ -138,7 +138,7 @@
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error
 {
-    if(delegate && [delegate respondsToSelector:@selector(didFailToGetLocationOfUser:)])
+    if(delegate && [delegate respondsToSelector:@selector(didFailToGetDesiredLocations:)])
     {
         [delegate didFailToGetDesiredLocations:[error localizedDescription]];
     }

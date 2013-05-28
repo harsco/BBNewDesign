@@ -45,9 +45,11 @@
     locManagerObj = [[LocationManager alloc] init];
     locManagerObj.delegate = self;
     
-   
+    self.title = @"Locations";
+    
     [self prepareNavigationBar];
     
+   
     
     if(userInput == MyLocation)
     {
@@ -73,6 +75,13 @@
         //do not load anything untill user searches..so proces search request
     }
 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSIndexPath *tableSelection = [self.locationsListView indexPathForSelectedRow];
+    [self.locationsListView deselectRowAtIndexPath:tableSelection animated:NO];
+    [self.locationSearchBar resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -152,6 +161,14 @@
     
 }
 
+//On Cancel button of Search Bar clicked
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar;
+{
+    [self.locationSearchBar resignFirstResponder];
+    [self.locationSearchBar setText:@""];
+}
+
 
 #pragma mark Map View Methods
 
@@ -200,7 +217,7 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
 -(void)prepareAnnotatinView
 {
     
-    NSMutableArray* annotationArray = [[NSMutableArray alloc] init];
+     annotationArray = [[NSMutableArray alloc] init];
     //
     CLLocationCoordinate2D tempCoordinate = CLLocationCoordinate2DMake(hotLocation.Latitude, hotLocation.Longitude);
     //
@@ -223,7 +240,7 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
     [annotationArray addObject:userLocationAnnotation];
     
     
-    NSLog(@"telephone is %@",hotLocation.name);
+    //NSLog(@"telephone is %@",hotLocation.name);
    
     for(int i=0;i<[locationsDetails count];i++)
     {
@@ -256,7 +273,7 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
     {
         static NSString *BridgeAnnotationIdentifier = @"userAnnotationIdentifier";
         
-        NSLog(@"annotation");
+        //NSLog(@"annotation");
         
         MKPinAnnotationView *pinView =
         (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:BridgeAnnotationIdentifier];
@@ -277,9 +294,9 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
             //
             // by using "calloutAccessoryControlTapped", it's a convenient way to find out which annotation was tapped
             //
-            UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-            [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
-            customPinView.rightCalloutAccessoryView = rightButton;
+//            UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+//            [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
+//            customPinView.rightCalloutAccessoryView = rightButton;
             
             return customPinView;
         }
@@ -297,7 +314,7 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
     {
         static NSString *BridgeAnnotationIdentifier = @"bridgeAnnotationIdentifier";
         
-        NSLog(@"annotation");
+        //NSLog(@"annotation");
         
         MKPinAnnotationView *pinView =
         (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:BridgeAnnotationIdentifier];
@@ -340,13 +357,48 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
     
 }
 
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    // here we illustrate how to detect which annotation type was clicked on for its callout
+    id <MKAnnotation> annotation = [view annotation];
+    if ([annotation isKindOfClass:[BBStoreAnnotation class]])
+    {
+       // NSLog(@"clicked Golden Gate Bridge annotation");
+        
+        
+        
+        ///if([annotation isEqual:[annotationArray inde]])
+    }
+    
+    NSLog(@"%d index is ",[annotationArray indexOfObject:annotation]);
+    
+    NSUInteger indexOfAnnotation = [annotationArray indexOfObject:annotation];
+    
+    if(indexOfAnnotation == NSNotFound)
+    {
+        //throw error
+        NSLog(@"error");
+    }
+    else
+    {
+        LocationDetailsVC* detailsVC = [[LocationDetailsVC alloc] initWithLocation:[locationsDetails objectAtIndex:[annotationArray indexOfObject:annotation]-1]];
+        
+        
+        [self.navigationController pushViewController:detailsVC animated:YES];
+        
+        [detailsVC release];
+    }
+    
+    
+}
+
 
 
 #pragma mark TableView Methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"count is %d",[locationsDetails count]);
+    //NSLog(@"count is %d",[locationsDetails count]);
     return [locationsDetails count];
 }
 
@@ -365,8 +417,9 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
         NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"storeResultsTableCell" owner:self options:nil];
         cell = [topLevelObjects objectAtIndex:0];
 
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		cell.accessoryView = nil;
+		//cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        //cell.accessoryView.backgroundColor = [UIColor clearColor];
+		//cell.accessoryView = nil;
 	}
     // Set up the cell...
     [self configureCell:cell atIndexPath:indexPath];
@@ -375,14 +428,31 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
 
 - (void)configureCell:(storeResultsTableCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
+//    if(indexPath.row%2 != 0)
+//    {
+//          cell.contentView.backgroundColor = [UIColor colorWithRed:221.0/255.0 green:219.0/255.0 blue:209.0/255.0 alpha:1];
+//    }
+  
+    //cell.accessoryView.backgroundColor = [UIColor greenColor];
     cell.storeName.text = [[locationsDetails objectAtIndex:indexPath.row] name];
     cell.storeAddress.text = [(Location*)[locationsDetails objectAtIndex:indexPath.row] address];
     cell.storeContactNumber.text = [NSString stringWithFormat:@"%@%@",@"Tel:  ",[[(Location*)[locationsDetails objectAtIndex:indexPath.row] telephone] stringByReplacingOccurrencesOfString:@" " withString:@""]];
-    
-    
     cell.storeDistance.text = [NSString stringWithFormat:@"%0.2f mi",[[locationsDetails objectAtIndex:indexPath.row] distanceFromInterestedLocation]];
     
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"selected Cell");
+    //[tableView deselectRowAtIndexPath:indexPath animated:YES];
+    LocationDetailsVC* detailsVC = [[LocationDetailsVC alloc] initWithLocation:[locationsDetails objectAtIndex:indexPath.row]];
+    
+    [self.navigationController pushViewController:detailsVC animated:YES];
+    
+    [detailsVC release];
+
+}
+
 
 #pragma mark Location Manager Call Backs
 
@@ -399,7 +469,7 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
 
 -(void)didGetDesiredLocations:(NSMutableArray *)desiredLocationsArray nearLocation:(Location *)location
 {
-    // NSLog(@"count is %d",[desiredLocationsArray count]);
+    NSLog(@"didGetDesiredLocations count is %d",[desiredLocationsArray count]);
     hotLocation = [location retain];
     
     [fetchingResultsAlert dismissWithClickedButtonIndex:0 animated:YES];
@@ -415,6 +485,7 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
     else
     {
         [self.locationsListView setHidden:NO];
+        //[self.view bringSubviewToFront:self.locationsListView];
         [self.mapView setHidden:YES];
         [self.locationsListView reloadData];
         

@@ -167,6 +167,15 @@ static sqlite3 *database = nil;
             locationObject.name = [[[NSString alloc] initWithFormat:@"%s",(char *)sqlite3_column_text(statement, 0) ] autorelease];
             
             locationObject.address = [NSString stringWithFormat:@"%s%@%s%@%s",(char *)sqlite3_column_text(statement, 1),@",",(char *)sqlite3_column_text(statement, 2),@",",(char *)sqlite3_column_text(statement, 3)];
+            
+            locationObject.streetAddress = [NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 1)];
+            locationObject.city =  [NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 2)];
+            locationObject.stateAndZip = [[NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 3)] stringByReplacingOccurrencesOfString:@" " withString:@""];
+            locationObject.state = [locationObject.stateAndZip stringByReplacingOccurrencesOfString:@"[0-9]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [ locationObject.stateAndZip length])];
+            locationObject.zipCode = [locationObject.stateAndZip stringByReplacingOccurrencesOfString:@"[^0-9]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [ locationObject.stateAndZip length])];
+            
+           // NSLog(@"zip is %@",[locationObject.stateAndZip stringByReplacingOccurrencesOfString:@"[0-9]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [ locationObject.stateAndZip length])]);
+            
             locationObject.telephone = [NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 4)];
             
             locationObject.Latitude = sqlite3_column_double(statement, 7);

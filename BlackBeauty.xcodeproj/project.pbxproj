@@ -36,12 +36,23 @@
 		3A5E88C217156DD800C531CA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E88C117156DD800C531CA /* ViewController.m */; };
 		3A5E88C517156DD800C531CA /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5E88C317156DD800C531CA /* ViewController_iPhone.xib */; };
 		3A5E88C817156DD800C531CA /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5E88C617156DD800C531CA /* ViewController_iPad.xib */; };
+		3A6455FF1754C8F200E90FCF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6455FE1754C8F200E90FCF /* MessageUI.framework */; };
 		3A6B16E217460E9E00D405D3 /* product_coal slag button_low.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6B16DF17460E9E00D405D3 /* product_coal slag button_low.png */; };
 		3A6B16E317460E9E00D405D3 /* product_copper slag button_low.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6B16E017460E9E00D405D3 /* product_copper slag button_low.png */; };
 		3A6B16E417460E9E00D405D3 /* product_crushed glass button_low.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6B16E117460E9E00D405D3 /* product_crushed glass button_low.png */; };
 		3A6B16E817460EAE00D405D3 /* product_coal slag button_low@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6B16E517460EAE00D405D3 /* product_coal slag button_low@2x.png */; };
 		3A6B16E917460EAE00D405D3 /* product_copper slag button_low@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6B16E617460EAE00D405D3 /* product_copper slag button_low@2x.png */; };
 		3A6B16EA17460EAE00D405D3 /* product_crushed glass button_low@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6B16E717460EAE00D405D3 /* product_crushed glass button_low@2x.png */; };
+		3A6DADE0174F449E001959EA /* LocationDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DADDE174F449E001959EA /* LocationDetailsVC.m */; };
+		3A6DADE3174F453D001959EA /* LocationDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6DADE2174F453D001959EA /* LocationDetailsVC.xib */; };
+		3A6DADE6174F4B0B001959EA /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6DADE4174F4B0B001959EA /* arrow.png */; };
+		3A6DADE7174F4B0B001959EA /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6DADE5174F4B0B001959EA /* arrow@2x.png */; };
+		3A6DADEA174F58BC001959EA /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6DADE8174F58BC001959EA /* clock.png */; };
+		3A6DADEB174F58BC001959EA /* directions.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6DADE9174F58BC001959EA /* directions.png */; };
+		3A6DADED174FA649001959EA /* contactUSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6DADEC174FA648001959EA /* contactUSCell.xib */; };
+		3A6DADF0174FA671001959EA /* contactUSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DADEF174FA671001959EA /* contactUSCell.m */; };
+		3A6DADF2174FAC3D001959EA /* mapViewIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6DADF1174FAC3D001959EA /* mapViewIcon.png */; };
+		3A6DADF4174FACD5001959EA /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6DADF3174FACD5001959EA /* email.png */; };
 		3A6E7A4A174CE02400052941 /* locationSearchResultsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6E7A48174CE02200052941 /* locationSearchResultsVC.m */; };
 		3A6E7A4D174CE06000052941 /* locationSearchResultsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6E7A4C174CE05E00052941 /* locationSearchResultsVC.xib */; };
 		3A6E7A4F174CF0D100052941 /* storeResultsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6E7A4E174CF0D000052941 /* storeResultsTableCell.xib */; };
@@ -159,12 +170,25 @@
 		3A5E88C117156DD800C531CA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3A5E88C417156DD800C531CA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		3A5E88C717156DD800C531CA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		3A6455FE1754C8F200E90FCF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3A6B16DF17460E9E00D405D3 /* product_coal slag button_low.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_coal slag button_low.png"; path = "UI/iPhone/Resources/images/Low Res/product_coal slag button_low.png"; sourceTree = "<group>"; };
 		3A6B16E017460E9E00D405D3 /* product_copper slag button_low.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_copper slag button_low.png"; path = "UI/iPhone/Resources/images/Low Res/product_copper slag button_low.png"; sourceTree = "<group>"; };
 		3A6B16E117460E9E00D405D3 /* product_crushed glass button_low.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_crushed glass button_low.png"; path = "UI/iPhone/Resources/images/Low Res/product_crushed glass button_low.png"; sourceTree = "<group>"; };
 		3A6B16E517460EAE00D405D3 /* product_coal slag button_low@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_coal slag button_low@2x.png"; path = "UI/iPhone/Resources/images/High Res/product_coal slag button_low@2x.png"; sourceTree = "<group>"; };
 		3A6B16E617460EAE00D405D3 /* product_copper slag button_low@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_copper slag button_low@2x.png"; path = "UI/iPhone/Resources/images/High Res/product_copper slag button_low@2x.png"; sourceTree = "<group>"; };
 		3A6B16E717460EAE00D405D3 /* product_crushed glass button_low@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_crushed glass button_low@2x.png"; path = "UI/iPhone/Resources/images/High Res/product_crushed glass button_low@2x.png"; sourceTree = "<group>"; };
+		3A6DADDD174F449E001959EA /* LocationDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationDetailsVC.h; path = UI/iPhone/ViewControllers/LocationDetailsVC.h; sourceTree = "<group>"; };
+		3A6DADDE174F449E001959EA /* LocationDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationDetailsVC.m; path = UI/iPhone/ViewControllers/LocationDetailsVC.m; sourceTree = "<group>"; };
+		3A6DADE2174F453D001959EA /* LocationDetailsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LocationDetailsVC.xib; path = UI/iPhone/Resources/Nib/LocationDetailsVC.xib; sourceTree = "<group>"; };
+		3A6DADE4174F4B0B001959EA /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrow.png; path = UI/iPhone/Resources/images/arrow.png; sourceTree = "<group>"; };
+		3A6DADE5174F4B0B001959EA /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow@2x.png"; path = "UI/iPhone/Resources/images/arrow@2x.png"; sourceTree = "<group>"; };
+		3A6DADE8174F58BC001959EA /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = clock.png; path = UI/iPhone/Resources/images/clock.png; sourceTree = "<group>"; };
+		3A6DADE9174F58BC001959EA /* directions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = directions.png; path = UI/iPhone/Resources/images/directions.png; sourceTree = "<group>"; };
+		3A6DADEC174FA648001959EA /* contactUSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = contactUSCell.xib; path = UI/iPhone/Resources/Nib/contactUSCell.xib; sourceTree = "<group>"; };
+		3A6DADEE174FA671001959EA /* contactUSCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = contactUSCell.h; path = UI/iPhone/Views/contactUSCell.h; sourceTree = "<group>"; };
+		3A6DADEF174FA671001959EA /* contactUSCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = contactUSCell.m; path = UI/iPhone/Views/contactUSCell.m; sourceTree = "<group>"; };
+		3A6DADF1174FAC3D001959EA /* mapViewIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapViewIcon.png; path = UI/iPhone/Resources/images/mapViewIcon.png; sourceTree = "<group>"; };
+		3A6DADF3174FACD5001959EA /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = email.png; path = UI/iPhone/Resources/images/email.png; sourceTree = "<group>"; };
 		3A6E7A47174CE02100052941 /* locationSearchResultsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = locationSearchResultsVC.h; path = UI/iPhone/ViewControllers/locationSearchResultsVC.h; sourceTree = "<group>"; };
 		3A6E7A48174CE02200052941 /* locationSearchResultsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = locationSearchResultsVC.m; path = UI/iPhone/ViewControllers/locationSearchResultsVC.m; sourceTree = "<group>"; };
 		3A6E7A4C174CE05E00052941 /* locationSearchResultsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = locationSearchResultsVC.xib; path = UI/iPhone/Resources/Nib/locationSearchResultsVC.xib; sourceTree = "<group>"; };
@@ -262,6 +286,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A6455FF1754C8F200E90FCF /* MessageUI.framework in Frameworks */,
 				3A7B92B6173B8F560097A6CA /* MapKit.framework in Frameworks */,
 				3AC2D6BF1738E7B400B2A714 /* AddressBook.framework in Frameworks */,
 				3A255ACA172FD9E90042875F /* CoreLocation.framework in Frameworks */,
@@ -320,6 +345,8 @@
 				3ACDE0F6174BB396009703A2 /* imageFullScreenVC.m */,
 				3A6E7A47174CE02100052941 /* locationSearchResultsVC.h */,
 				3A6E7A48174CE02200052941 /* locationSearchResultsVC.m */,
+				3A6DADDD174F449E001959EA /* LocationDetailsVC.h */,
+				3A6DADDE174F449E001959EA /* LocationDetailsVC.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -336,6 +363,7 @@
 		3A255A9F172FACA40042875F /* Nib */ = {
 			isa = PBXGroup;
 			children = (
+				3A6DADE2174F453D001959EA /* LocationDetailsVC.xib */,
 				3A6E7A4C174CE05E00052941 /* locationSearchResultsVC.xib */,
 				3ACDE0FA174BB43E009703A2 /* imageFullScreenVC.xib */,
 				3A6FBD20174B8C5A003578DA /* DefaultTableCell.xib */,
@@ -353,6 +381,7 @@
 				3AB7BF0E1733CA1A00029A68 /* addressCell.xib */,
 				3AB7BF191733F4D800029A68 /* addressViewCell.xib */,
 				3A6E7A4E174CF0D000052941 /* storeResultsTableCell.xib */,
+				3A6DADEC174FA648001959EA /* contactUSCell.xib */,
 			);
 			name = Nib;
 			sourceTree = "<group>";
@@ -360,6 +389,12 @@
 		3A255AA0172FACA90042875F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3A6DADF3174FACD5001959EA /* email.png */,
+				3A6DADF1174FAC3D001959EA /* mapViewIcon.png */,
+				3A6DADE8174F58BC001959EA /* clock.png */,
+				3A6DADE9174F58BC001959EA /* directions.png */,
+				3A6DADE4174F4B0B001959EA /* arrow.png */,
+				3A6DADE5174F4B0B001959EA /* arrow@2x.png */,
 				3ACDE0F3174BAEAE009703A2 /* call_us.png */,
 				3A6FBD1B174B6008003578DA /* testImage.jpg */,
 				3A4FE6D117436ED500A83E7E /* pin.png */,
@@ -396,6 +431,7 @@
 		3A5E889C17156DD800C531CA = {
 			isa = PBXGroup;
 			children = (
+				3A6455FE1754C8F200E90FCF /* MessageUI.framework */,
 				3A255AB7172FC0F00042875F /* app_icon_iphone.png */,
 				3A255AB5172FC0EB0042875F /* app_icon_iphone_high res.png */,
 				3A255AB3172FC09B0042875F /* Default@2x.png */,
@@ -525,6 +561,8 @@
 				3A6E7A51174CF24600052941 /* storeResultsTableCell.m */,
 				3A5A5701174E2EEE00E9DB52 /* UserLocationAnnotation.h */,
 				3A5A5702174E2EEE00E9DB52 /* UserLocationAnnotation.m */,
+				3A6DADEE174FA671001959EA /* contactUSCell.h */,
+				3A6DADEF174FA671001959EA /* contactUSCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -657,6 +695,14 @@
 				3ACDE0FB174BB43E009703A2 /* imageFullScreenVC.xib in Resources */,
 				3A6E7A4D174CE06000052941 /* locationSearchResultsVC.xib in Resources */,
 				3A6E7A4F174CF0D100052941 /* storeResultsTableCell.xib in Resources */,
+				3A6DADE3174F453D001959EA /* LocationDetailsVC.xib in Resources */,
+				3A6DADE6174F4B0B001959EA /* arrow.png in Resources */,
+				3A6DADE7174F4B0B001959EA /* arrow@2x.png in Resources */,
+				3A6DADEA174F58BC001959EA /* clock.png in Resources */,
+				3A6DADEB174F58BC001959EA /* directions.png in Resources */,
+				3A6DADED174FA649001959EA /* contactUSCell.xib in Resources */,
+				3A6DADF2174FAC3D001959EA /* mapViewIcon.png in Resources */,
+				3A6DADF4174FACD5001959EA /* email.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,6 +738,8 @@
 				3A6E7A4A174CE02400052941 /* locationSearchResultsVC.m in Sources */,
 				3A6E7A52174CF24600052941 /* storeResultsTableCell.m in Sources */,
 				3A5A5703174E2EEE00E9DB52 /* UserLocationAnnotation.m in Sources */,
+				3A6DADE0174F449E001959EA /* LocationDetailsVC.m in Sources */,
+				3A6DADF0174FA671001959EA /* contactUSCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 #import "Location.h"
 
 @implementation Location
-@synthesize Latitude,Longitude,name,address,telephone,email,webSite,distanceFromInterestedLocation;
+@synthesize Latitude,Longitude,name,address,telephone,email,webSite,distanceFromInterestedLocation,streetAddress,city,state,zipCode,stateAndZip;
 
 -(void)dealloc
 {

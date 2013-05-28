@@ -15,6 +15,11 @@
     double Longitude;
     NSString* name;
     NSString* address;
+    NSString* streetAddress;
+    NSString* city;
+    NSString* state;
+    NSString* zipCode;
+    NSString* stateAndZip;
     NSString* telephone;
     NSString* email;
     NSString* webSite;
@@ -26,6 +31,11 @@
 @property(nonatomic)double Longitude;
 @property(nonatomic,retain) NSString* name;
 @property(nonatomic,retain) NSString* address;
+@property(nonatomic,retain) NSString* streetAddress;
+@property(nonatomic,retain) NSString* city;
+@property(nonatomic,retain) NSString* state;
+@property(nonatomic,retain) NSString* zipCode;
+@property(nonatomic,retain) NSString* stateAndZip;
 @property(nonatomic,retain) NSString* telephone;
 @property(nonatomic,retain) NSString* email;
 @property(nonatomic,retain) NSString* webSite;

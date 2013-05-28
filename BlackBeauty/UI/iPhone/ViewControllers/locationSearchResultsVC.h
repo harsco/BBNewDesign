@@ -12,6 +12,7 @@
 #import "LocationManager.h"
 #import "BBStoreAnnotation.h"
 #import "UserLocationAnnotation.h"
+#import "LocationDetailsVC.h"
 
 @interface locationSearchResultsVC : UIViewController<locationSearchResultsProtocol,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,MKMapViewDelegate>
 {
@@ -23,6 +24,7 @@
     UISegmentedControl *segmentedControl;
     
     NSMutableArray* locationsDetails;
+    NSMutableArray* annotationArray;
     NSArray* locations;
     
     LocationManager* locManagerObj;
