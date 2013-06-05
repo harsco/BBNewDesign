@@ -44,6 +44,13 @@
 
 }
 
+-(NSMutableArray*)getAllLocations
+{
+    return [[AppStorage getInstance] getAllLocations];
+}
+
+
+
 -(void)getResellersNearThePlace:(NSString*)place
 {
     

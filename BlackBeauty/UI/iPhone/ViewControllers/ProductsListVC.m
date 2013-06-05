@@ -61,17 +61,36 @@
 }
 
 #pragma mark button methods
+
+-(IBAction)onBBOriginalClicked:(id)sender
+{
+    BBOriginalProductInfoVC* originalProduct = [[BBOriginalProductInfoVC alloc] initWithNibName:@"App_ProductsScreenVC" bundle:nil];
+    
+    [self.navigationController pushViewController:originalProduct animated:YES];
+    
+    [originalProduct release];
+}
+
 -(IBAction)onBBGlassClicked:(id)sender
 {
-    App_ProductsScreenVC* productsVC = [[App_ProductsScreenVC alloc] init];
+    BBGlassProductInfoVC* glassProduct = [[BBGlassProductInfoVC alloc] initWithNibName:@"App_ProductsScreenVC" bundle:nil];
     
-    //[self presentModalViewController:productsVC animated:YES];
+    [self.navigationController pushViewController:glassProduct animated:YES];
     
-    [self.navigationController pushViewController:productsVC animated:YES];
-    
-    [productsVC release];
+    [glassProduct release];
     
 }
+
+-(IBAction)onBBIronClicked:(id)sender
+{
+    BBIronProductInfoVC* ironProduct = [[BBIronProductInfoVC alloc] initWithNibName:@"App_ProductsScreenVC" bundle:nil];
+    
+    [self.navigationController pushViewController:ironProduct animated:YES];
+    
+    [ironProduct release];
+}
+
+
 
 #pragma mark Navigation Callback
 

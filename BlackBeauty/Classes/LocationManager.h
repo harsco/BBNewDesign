@@ -31,6 +31,7 @@
 -(void)getResellersNearMYLocation;
 -(void)getResellersNearThePlace:(NSString*)place;
 -(void)doForwardGeoCodingOfPlace:(NSString*)place;
+-(NSMutableArray*)getAllLocations;
 
 @end
 

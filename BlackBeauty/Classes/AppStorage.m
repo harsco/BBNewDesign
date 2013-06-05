@@ -82,56 +82,6 @@ static sqlite3 *database = nil;
 }
 
 
-//Test Method ----- to be removed
-
--(void)getAllLocations
-{
-    // NSString* sqlQuery = [[NSString alloc] initWithFormat:@"%@%@%@",@"select * from ",LOCATION_DB,@" ORDER BY distance (latitude, longitude, 38.400391, -81.847847) LIMIT 0,100"];
-    
-    NSString* sqlQuery = [[NSString alloc] initWithFormat:@"%@%@",@"select *,",@" distance (latitude, longitude, 38.400391, -81.847847) AS Distance FROM locations ORDER BY Distance LIMIT 0,4"];
-    
-    
-    NSLog(@"query is %@",sqlQuery);
-    
-    //NSString* sqlQuery = [[NSString alloc] initWithFormat:@"%@%@%@%@%@",@"select * from ",table,@" where foreignId = '",entity,@"'"];
-    
-    // NSLog(@"sql query is %@",sqlQuery);
-    
-    // NSMutableArray* dataArray = [[NSMutableArray alloc] init];38.400391,-81.847847
-    
-    sqlite3_stmt* statement = NULL;
-    
-    if(sqlite3_prepare(database, [sqlQuery UTF8String], -1, &statement, 0) != SQLITE_OK)
-    {
-        NSLog(@"%s",sqlite3_errmsg(database));
-        [sqlQuery release];
-    }
-    else
-    {
-        [sqlQuery release];
-        while(sqlite3_step(statement) == SQLITE_ROW)
-        {
-                        
-            
-            NSLog(@"%@",[NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 0)]);
-            NSLog(@"%@",[NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 1)]);
-            NSLog(@"%@",[NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 2)]);
-            NSLog(@"%@",[NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 3)]);
-            NSLog(@"%@",[NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 4)]);
-            NSLog(@"%@",[NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 5)]);
-            NSLog(@"%@",[NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 6)]);
-            NSLog(@"%f",sqlite3_column_double(statement, 7));
-            NSLog(@"%f",sqlite3_column_double(statement, 8));
-            NSLog(@"%f",sqlite3_column_double(statement, 9));
-            
-        }
-    }
-    
-    
-    sqlite3_finalize(statement);
-    
-    
-}
 
 -(NSMutableArray*)getResellersNearMe:(Location*)userLocation
 {
@@ -213,6 +163,87 @@ static sqlite3 *database = nil;
     
 }
 
+
+//This method is for Contact Us page it pulls out all the locations in alphabetical order
+
+-(NSMutableArray*)getAllLocations
+{
+     //NSString* sqlQuery = [[NSString alloc] initWithFormat:@"%@%@%@%@%@%@",@"select * from ",PC_POSITIONS,@" where ordernumber = '",order.orderNumber,@"'",@" order by positionint;"];
+    
+    NSString* sqlQuery = @"select * from locations order by city";
+    
+    NSMutableArray* resultLocations = [[NSMutableArray alloc] init];
+    
+    sqlite3_stmt* statement = NULL;
+    
+    if(sqlite3_prepare(database, [sqlQuery UTF8String], -1, &statement, 0) != SQLITE_OK)
+    {
+        NSLog(@"%s",sqlite3_errmsg(database));
+        [sqlQuery release];
+    }
+    else
+    {
+        [sqlQuery release];
+        while(sqlite3_step(statement) == SQLITE_ROW)
+        {
+            
+            NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
+            
+            Location* locationObject = [[Location alloc] init];
+            
+            
+            locationObject.name = [[[NSString alloc] initWithFormat:@"%s",(char *)sqlite3_column_text(statement, 0) ] autorelease];
+            
+            locationObject.address = [NSString stringWithFormat:@"%s%@%s%@%s",(char *)sqlite3_column_text(statement, 1),@",",(char *)sqlite3_column_text(statement, 2),@",",(char *)sqlite3_column_text(statement, 3)];
+            
+            locationObject.streetAddress = [NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 1)];
+            locationObject.city =  [NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 2)];
+            locationObject.stateAndZip = [[NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 3)] stringByReplacingOccurrencesOfString:@" " withString:@""];
+            locationObject.state = [locationObject.stateAndZip stringByReplacingOccurrencesOfString:@"[0-9]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [ locationObject.stateAndZip length])];
+            locationObject.zipCode = [locationObject.stateAndZip stringByReplacingOccurrencesOfString:@"[^0-9]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [ locationObject.stateAndZip length])];
+            
+            // NSLog(@"zip is %@",[locationObject.stateAndZip stringByReplacingOccurrencesOfString:@"[0-9]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [ locationObject.stateAndZip length])]);
+            
+            locationObject.telephone = [NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 4)];
+            
+            locationObject.email = [NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 6)];
+            
+           // NSLog(@"email is %@",locationObject.email);
+            locationObject.Latitude = sqlite3_column_double(statement, 7);
+            locationObject.Longitude = sqlite3_column_double(statement, 8);
+            
+            locationObject.distanceFromInterestedLocation = sqlite3_column_double(statement, 9);
+            
+            
+            
+            
+            //            NSLog(@"%@",[NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 0)]);
+            //            NSLog(@"%@",[NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 1)]);
+            //            NSLog(@"%@",[NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 2)]);
+            //            NSLog(@"%@",[NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 3)]);
+            //            NSLog(@"%@",[NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 4)]);
+            //            NSLog(@"%@",[NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 5)]);
+            //            NSLog(@"%@",[NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 6)]);
+            //            NSLog(@"%f",sqlite3_column_double(statement, 7));
+            //            NSLog(@"%f",sqlite3_column_double(statement, 8));
+            //            NSLog(@"%f",sqlite3_column_double(statement, 9));
+            
+            [resultLocations addObject:locationObject];
+            
+            [locationObject release];
+            
+            [pool release];
+
+            
+            
+        }
+    }
+    
+    sqlite3_finalize(statement);
+    
+    return [resultLocations autorelease];
+
+}
 
 
 //This method has been used from the following resource http://www.thismuchiknow.co.uk/?p=71

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "App_ProductsScreenVC.h"
+#import "BBOriginalProductInfoVC.h"
+#import "BBGlassProductInfoVC.h"
+#import "BBIronProductInfoVC.h"
 
 @interface ProductsListVC : UIViewController<UINavigationControllerDelegate>
 {
@@ -17,6 +19,8 @@
 
 @property(nonatomic,retain)IBOutlet UINavigationBar* headerView;
 
+-(IBAction)onBBOriginalClicked:(id)sender;
 -(IBAction)onBBGlassClicked:(id)sender;
+-(IBAction)onBBIronClicked:(id)sender;
 
 @end

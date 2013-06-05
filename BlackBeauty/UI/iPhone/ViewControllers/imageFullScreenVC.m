@@ -25,6 +25,16 @@
     return self;
 }
 
+-(id)initWIthImage:(UIImage*)image
+{
+    if(self = [super init])
+    {
+        fullScreenImage = [image retain];
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -35,6 +45,7 @@
     //self.imageScrollView.minimumZoomScale = 0.75;
     [self.imageScrollView setClipsToBounds:YES];
     self.imageScrollView.delegate = self;
+    self.fullSizeImageView.image = fullScreenImage;
 
 }
 

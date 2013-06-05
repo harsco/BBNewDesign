@@ -13,7 +13,7 @@
 @end
 
 @implementation App_ProductsScreenVC
-@synthesize productsScrollView,bulletPointsView,thumbNailImage,productInfoView,leftSideButton,rightSideButton,userOptionsTable,imageZoomButton;
+@synthesize productsScrollView,bulletPointsView,thumbNailImage,gradesButton,packagingButton,userOptionsTable,imageZoomButton,productInfoWebView,packagingView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,7 +35,7 @@
     self.productsScrollView.delegate = self;
     [self.productsScrollView setScrollEnabled:YES];
     
-
+    
     
     
     
@@ -44,6 +44,12 @@
     //self.navigationController.navigationBar.topItem.leftBarButtonItem.title = @"Products";
     
     self.title = @" BLACK BEAUTY® GLASS";
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    NSIndexPath *tableSelection = [self.userOptionsTable indexPathForSelectedRow];
+    [self.userOptionsTable deselectRowAtIndexPath:tableSelection animated:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,7 +79,34 @@
 }
 
 
-#pragma mark TableView Methods
+-(IBAction)onPackagingButton:(id)sender
+{
+    [self.productInfoWebView setHidden:YES];
+    [self.gradesButton setBackgroundColor:[UIColor colorWithRed:245.0/255.0 green:132.0/255.0 blue:38.0/255.0 alpha:1]];
+    [self.packagingButton setBackgroundColor:[UIColor whiteColor]];
+    //self.packagingButton.titleLabel.textColor = [UIColor blackColor];
+    [self.packagingButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    self.gradesButton.titleLabel.textColor = [UIColor whiteColor];
+    [self.packagingView setHidden:NO];
+    
+    [self.userOptionsTable setFrame:CGRectMake(0, 470, 320, 300)];
+}
+
+-(IBAction)onGradesButtonClicked:(id)sender
+{
+    [self.packagingView setHidden:YES];
+    [self.productInfoWebView setHidden:NO];
+    
+    [self.packagingButton setBackgroundColor:[UIColor colorWithRed:245.0/255.0 green:132.0/255.0 blue:38.0/255.0 alpha:1]];
+    [self.gradesButton setBackgroundColor:[UIColor whiteColor]];
+    
+    self.packagingButton.titleLabel.textColor = [UIColor whiteColor];
+    self.gradesButton.titleLabel.textColor = [UIColor blackColor];
+    
+    [self.userOptionsTable setFrame:CGRectMake(0, 820, 320, 300)];
+}
+
 
 #pragma mark TableView Methods
 
@@ -91,7 +124,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 10.; // you can have your own choice, of course
+    return 10; // you can have your own choice, of course
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -125,25 +158,35 @@
 - (void)configureCell:(DefaultTableCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
      cell.backgroundView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"list_item_bg@2x.png"]] autorelease];
+    UIView* tempSelectionView = [[UIView alloc] init];
+    
+    tempSelectionView.backgroundColor = [UIColor colorWithRed:245.0/255.0 green:132.0/255.0 blue:38.0/255.0 alpha:1];
+    
+    [cell setSelectedBackgroundView:[tempSelectionView autorelease]];
     
     if(indexPath.section == 0)
     {
         cell.optionLabel.text = @"MSDS";
-        cell.optionsIcon.image = [UIImage imageNamed:@"word"];
+        cell.optionsIcon.image = [UIImage imageNamed:@"msds_download"];
     }
     
     else if(indexPath.section == 1)
     {
         cell.optionLabel.text = @"Specifications";
-         cell.optionsIcon.image = [UIImage imageNamed:@"word"];
+         cell.optionsIcon.image = [UIImage imageNamed:@"msds_download"];
     }
         
     else
     {
         cell.optionLabel.text = @"Contact US/ Order now";
-         cell.optionsIcon.image = [UIImage imageNamed:@"call_us"];
+         cell.optionsIcon.image = [UIImage imageNamed:@"callus"];
     }
         
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 

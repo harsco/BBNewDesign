@@ -59,7 +59,7 @@
 }
 -(IBAction)onContactUsClicked:(id)sender
 {
-    ContactUs* testContact = [[ContactUs alloc] init];
+    contactUSVC* testContact = [[contactUSVC alloc] init];
     
     rootNavigationController = [[UINavigationController alloc] initWithRootViewController:testContact];
     
@@ -70,14 +70,7 @@
     [testContact release];
     
 }
--(IBAction)onDownloadSpecSheetClicked:(id)sender
-{
-    DownloadVC* download = [[DownloadVC alloc] init];
-    
-    [self.navigationController pushViewController:download animated:YES];
-    
-    [download release];
-}
+
 
 -(IBAction)onProductsButtonClicked:(id)sender
 {
@@ -94,6 +87,64 @@
     [rootNavigationController release];
 }
 
+-(IBAction)onAboutUsClicked:(id)sender
+{
+    aboutUSVC* aboutUsScreen = [[aboutUSVC alloc] init];
+    //rootNavigationController = [[UINavigationController alloc] initWithRootViewController:aboutUsScreen];
+    aboutUsScreen.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentModalViewController:aboutUsScreen animated:YES];
+    
+    [aboutUsScreen release];
+  
+    
+    
+}
+
+-(IBAction)onFaqClicked:(id)sender
+{
+    faqVC* faqScreen = [[faqVC alloc] init];
+    rootNavigationController = [[UINavigationController alloc] initWithRootViewController:faqScreen];
+    rootNavigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    [self presentViewController:rootNavigationController animated:YES completion:nil];
+    
+    [faqScreen release];
+    
+    
+}
+
+-(IBAction)onMSDSClicked:(id)sender
+{
+    MSDSVC* msdsScreen = [[MSDSVC alloc] init];
+    rootNavigationController = [[UINavigationController alloc] initWithRootViewController:msdsScreen];
+    rootNavigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    [self presentViewController:rootNavigationController animated:YES completion:nil];
+    
+    [msdsScreen release];
+
+    
+}
+
+-(IBAction)onProfileGuideClicked:(id)sender
+{
+    //[[NSBundle mainBundle] pathForResource:@"grading_original" ofType:@"html"]isDirectory:NO]]
+    
+    DocumentViewerVC* profileGuideViewer = [[DocumentViewerVC alloc] initWithFilePath:[[NSBundle mainBundle] pathForResource:@"ProfileGuide" ofType:@"pdf"]];
+    profileGuideViewer.isProfileGuide = YES;
+
+    //ProfileGuideVC* profileGuideViewer = [[ProfileGuideVC alloc] init];
+    
+    rootNavigationController = [[UINavigationController alloc] initWithRootViewController:profileGuideViewer];
+    rootNavigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    [self presentViewController:rootNavigationController animated:YES completion:nil];
+
+    
+    [profileGuideViewer release];
+    
+    
+}
 -(IBAction)onPrivacyButtonClicked:(id)sender
 {
     NSLog(@"Privacy Clicked");

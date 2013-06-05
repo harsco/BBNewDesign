@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "faqDetailsVC.h"
+#import "FAQ.h"
 
 @interface faqVC : UIViewController
 {
-    IBOutlet UIWebView* helpView;
+   
+    IBOutlet UITableView* faqListView;
+    
+    NSMutableArray* faqArray;
 }
 
-@property(nonatomic,retain)IBOutlet UIWebView* helpView;
+@property(nonatomic,retain)IBOutlet UITableView* faqListView;
 
 @end

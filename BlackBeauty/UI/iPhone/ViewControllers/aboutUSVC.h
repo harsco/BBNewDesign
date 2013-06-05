@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "aboutHarscoVC.h"
 
 @interface aboutUSVC : UIViewController
+{
+    UINavigationBar* aboutUsHeader;
+}
+
+@property(nonatomic,retain)IBOutlet UINavigationBar* aboutUsHeader;
 
 @end

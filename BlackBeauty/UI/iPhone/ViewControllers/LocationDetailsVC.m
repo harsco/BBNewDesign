@@ -46,13 +46,26 @@
     self.storeName.text = locationToShow.name;
     self.storeStreet.text = locationToShow.streetAddress;
     self.storeCity.text = [locationToShow.city stringByAppendingFormat:@"%@%@",@", ",locationToShow.stateAndZip];
+    
+    if(![locationToShow.email length])
+    {
+        [userOptionsTable setFrame:CGRectMake(10, 140, 300, 243)];
+    }
     //self.storeCity.text = locationToShow.c
 }
 
 -(void)viewDidUnload
 {
     [super viewDidUnload];
+    
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    NSIndexPath *tableSelection = [self.userOptionsTable indexPathForSelectedRow];
+    [self.userOptionsTable deselectRowAtIndexPath:tableSelection animated:NO];
+}
+
 
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -76,7 +89,11 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 
 {
+    if([locationToShow.email length])
     return 5;
+    
+    else
+    return 4;
 }
 
 
@@ -104,32 +121,6 @@
 
 
 
-//- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-//{
-//   // cell.contentView.backgroundColor = [UIColor colorWithRed:221.0/255.0 green:219.0/255.0 blue:209.0/255.0 alpha:1];
-//    //cell.backgroundColor = [UIColor colorWithRed:221.0/255.0 green:219.0/255.0 blue:209.0/255.0 alpha:1];
-//    
-//    UIImageView* accessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(308, 20, 11, 17)];
-//    accessoryView.image = [UIImage imageNamed:@"arrow"];
-//    [cell addSubview:accessoryView];
-//    
-//    if(indexPath.row%2 != 0)
-//    {
-//          cell.contentView.backgroundColor = [UIColor colorWithRed:221.0/255.0 green:219.0/255.0 blue:209.0/255.0 alpha:1];
-//    }
-//    else
-//    {
-//        cell.contentView.backgroundColor = [UIColor whiteColor];
-//    }
-//    
-//    
-//    cell.backgroundColor = [UIColor clearColor];
-//    [cell setBackgroundView:nil];
-//
-//    
-//    cell.textLabel.text = @"Test Location"; //cell.textLabel.text = @"mahi";
-//    cell.imageView.image = [UIImage imageNamed:@"directions"];
-//}
 
 - (void)configureCell:(contactUSCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
@@ -146,29 +137,29 @@
     if(indexPath.row == 0)
     {
         cell.cellLabel.text = @"Hours";
-        cell.cellIcon.image = [UIImage imageNamed:@"clock"];
+        cell.cellIcon.image = [UIImage imageNamed:@"hours"];
     }
     
     else if(indexPath.row == 1)
     {
         cell.cellLabel.text = @"Get Directions";
-        cell.cellIcon.image = [UIImage imageNamed:@"directions"];
+        cell.cellIcon.image = [UIImage imageNamed:@"getdirections"];
     }
     
     else if(indexPath.row == 2)
     {
         cell.cellLabel.text = [NSString stringWithFormat:@"%@%@",@"Call ",locationToShow.telephone];
-        cell.cellIcon.image = [UIImage imageNamed:@"call_us"];
+        cell.cellIcon.image = [UIImage imageNamed:@"callus"];
     }
     else if(indexPath.row == 3)
     {
         cell.cellLabel.text = @"View On Map";
-        cell.cellIcon.image = [UIImage imageNamed:@"mapViewIcon"];
+        cell.cellIcon.image = [UIImage imageNamed:@"viewonmap"];
     }
     else
     {
         cell.cellLabel.text = @"Email";
-        cell.cellIcon.image = [UIImage imageNamed:@"email"];
+        cell.cellIcon.image = [UIImage imageNamed:@"emailus"];
     }
     
 }
@@ -238,7 +229,7 @@
         
          [mailController setSubject:@"Black Beauty"];
         // [mailController setMessageBody:@"my message" isHTML:NO];
-        [mailController setToRecipients:[NSArray arrayWithObjects:@"harscosocialmedia@harsco.com", nil]];
+        [mailController setToRecipients:[NSArray arrayWithObjects:locationToShow.email, nil]];
         
         mailController.mailComposeDelegate = self;
         
@@ -247,10 +238,23 @@
             if ([MFMailComposeViewController canSendMail]){
                 [self presentModalViewController:mailController animated:YES];
             }
+            else{
+                //throw error
+                
+            }
         }
         
         [mailController release];
     }
+    else if(indexPath.row == 3)
+    {
+        MapViewController* mapView = [[MapViewController alloc] initWithLocation:locationToShow];
+        [self.navigationController pushViewController:mapView animated:YES];
+        [mapView release];
+        
+    }
+    
+    
 }
 
 #pragma mark Mail Composer Delegate

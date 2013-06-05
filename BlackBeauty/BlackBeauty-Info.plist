@@ -8,14 +8,19 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>app_icon_iphone_lowres_new.png</string>
+		<string>app_icon_iphone_highres_new.png</string>
+	</array>
 	<key>CFBundleIcons</key>
 	<dict>
 		<key>CFBundlePrimaryIcon</key>
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>app_icon_iphone_high res.png</string>
-				<string>app_icon_iphone.png</string>
+				<string>app_icon_iphone_lowres_new.png</string>
+				<string>app_icon_iphone_highres_new.png</string>
 			</array>
 		</dict>
 	</dict>

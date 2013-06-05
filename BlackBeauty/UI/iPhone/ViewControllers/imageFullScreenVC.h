@@ -12,9 +12,12 @@
 {
     UIScrollView* imageScrollView;
     UIImageView* fullSizeImageView;
+    UIImage* fullScreenImage;
 }
 
 @property(nonatomic,retain)IBOutlet UIScrollView* imageScrollView;
 @property(nonatomic,retain)IBOutlet UIImageView* fullSizeImageView;
+
+-(id)initWIthImage:(UIImage*)image;
 
 @end

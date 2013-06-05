@@ -21,7 +21,7 @@
 
 + (AppStorage *)getInstance;
 
--(void)getAllLocations; //test method to be removed
+-(NSMutableArray*)getAllLocations;
 -(NSMutableArray*)getResellersNearMe:(Location*)userLocation;   //function which computes nearest locations
 
 @end

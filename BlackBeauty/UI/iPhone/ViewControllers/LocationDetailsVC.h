@@ -11,6 +11,7 @@
 #import <MapKit/MapKit.h>
 #import <AddressBookUI/AddressBookUI.h>
 #import <MessageUI/MessageUI.h>
+#import "MapViewController.h"
 
 @interface LocationDetailsVC : UIViewController<UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate>
 {

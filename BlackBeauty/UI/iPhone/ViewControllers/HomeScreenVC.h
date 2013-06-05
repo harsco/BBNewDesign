@@ -10,10 +10,14 @@
 #import "AppStorage.h"
 #import "LocationManager.h"
 #import "testLocationResultsVC.h"
-#import "ContactUs.h"
-#import "DownloadVC.h"
+#import "contactUSVC.h"
 #import "LocatorToolUserInputVC.h"
 #import "ProductsListVC.h"
+#import "aboutUSVC.h"
+#import "faqVC.h"
+#import "MSDSVC.h"
+#import "DocumentViewerVC.h"
+#import "ProfileGuideVC.h"
 
 @interface HomeScreenVC : UIViewController
 {
@@ -32,5 +36,7 @@
 -(IBAction)onContactUsClicked:(id)sender;
 -(IBAction)onDownloadSpecSheetClicked:(id)sender;
 -(IBAction)onPrivacyButtonClicked:(id)sender;
+-(IBAction)onMSDSClicked:(id)sender;
+-(IBAction)onProfileGuideClicked:(id)sender;
 
 @end
