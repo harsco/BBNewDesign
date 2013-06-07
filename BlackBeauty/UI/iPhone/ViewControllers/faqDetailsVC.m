@@ -43,7 +43,7 @@
     
     
     self.faqQuestion.text = faqToBeShown.question;
-    self.title = @"Black Beauty Help";
+    self.title = @"BLACK BEAUTY Help";
     
     if([faqToBeShown.question isEqualToString:@"How do I order BLACK BEAUTY abrasives?"])
     {
@@ -139,7 +139,7 @@
 	if ( /*( [ [ loadURL scheme ] isEqualToString: @"http "] || [ [ loadURL scheme ] isEqualToString: @"https" ] ) &&*/  navigationType == UIWebViewNavigationTypeLinkClicked )
     {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open In Safari???"
-                                                               message :@"Clicking OK would leave the app and launch Safari."
+                                                               message :@"Clicking YES would leave the Black Beauty App and launch Safari."
                                                                delegate:self
                                                       cancelButtonTitle: @"No"
                                                       otherButtonTitles:@"Yes", nil];

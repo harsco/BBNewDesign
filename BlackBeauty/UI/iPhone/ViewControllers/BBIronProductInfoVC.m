@@ -66,6 +66,52 @@
         
         [contactUSScreen release];
     }
+    else if(indexPath.section == 0)
+    {
+        if([[Utilities getInstance] isFileExists:BBIRON])
+        {
+            [self viewDocument];
+        }
+        else
+        {
+            if([[NetworkInterface getInstance] isInternetAvailable])
+            {
+                fetchingResultsAlert = [[UIAlertView alloc] initWithTitle:@"Downloading File" message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+                
+                UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc]
+                                                    initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+                loading.frame=CGRectMake(125, 50, 36, 36);
+                [loading startAnimating];
+                [fetchingResultsAlert addSubview:loading];
+                
+                [loading release];
+                
+                [fetchingResultsAlert show];
+                [dataSource downloadMSDSFileForProduct:BBIron];
+            }
+            else
+            {
+                [Utilities showAlertOKWithTitle:@"Network Error!!" withMessage:@"You appear to be offline..Please go to settings and enable a network connection"];
+                
+            }
+            
+        }
+        
+    }
+
+}
+
+-(void)viewDocument
+{
+    NSString *resourceDocPath = [[NSString alloc] initWithString:[[[[NSBundle mainBundle]  resourcePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"Documents"]];
+    
+    NSLog(@"path for resource is %@",resourceDocPath);
+    
+    NSString *filePath = [resourceDocPath stringByAppendingPathComponent:BBIRON];
+    DocumentViewerVC* pdfViewer = [[DocumentViewerVC alloc] initWithFilePath:filePath];
+    [self.navigationController pushViewController:pdfViewer animated:YES];
+    
+    [pdfViewer release];
 }
 
 

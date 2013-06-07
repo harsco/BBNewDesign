@@ -100,6 +100,10 @@
 		3A8D877E175647CE0015B704 /* about_us@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D877C175647CE0015B704 /* about_us@2x.png */; };
 		3A8D878217564D0B0015B704 /* aboutHarscoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D878017564D090015B704 /* aboutHarscoVC.m */; };
 		3A8D878517564D410015B704 /* aboutHarscoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D878417564D410015B704 /* aboutHarscoVC.xib */; };
+		3A987DE11761CA5E006D5750 /* NetworkInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A987DDE1761CA5E006D5750 /* NetworkInterface.m */; };
+		3A987DE21761CA5E006D5750 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A987DE01761CA5E006D5750 /* Reachability.m */; };
+		3A987DE41761CBAD006D5750 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A987DE31761CBAD006D5750 /* SystemConfiguration.framework */; };
+		3A987DE61761CBB5006D5750 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A987DE51761CBB4006D5750 /* CFNetwork.framework */; };
 		3AA5DFE517324F9A0002E657 /* testLocationResultsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5DFE317324F9A0002E657 /* testLocationResultsVC.m */; };
 		3AA5DFE817324FD90002E657 /* testLocationResultsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AA5DFE717324FD90002E657 /* testLocationResultsVC.xib */; };
 		3AA5DFEB1732A0B90002E657 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5DFEA1732A0B90002E657 /* Location.m */; };
@@ -302,6 +306,12 @@
 		3A8D877F17564D090015B704 /* aboutHarscoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aboutHarscoVC.h; path = UI/iPhone/ViewControllers/aboutHarscoVC.h; sourceTree = "<group>"; };
 		3A8D878017564D090015B704 /* aboutHarscoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = aboutHarscoVC.m; path = UI/iPhone/ViewControllers/aboutHarscoVC.m; sourceTree = "<group>"; };
 		3A8D878417564D410015B704 /* aboutHarscoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = aboutHarscoVC.xib; path = UI/iPhone/Resources/Nib/aboutHarscoVC.xib; sourceTree = "<group>"; };
+		3A987DDD1761CA5E006D5750 /* NetworkInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkInterface.h; path = Classes/Network/NetworkInterface.h; sourceTree = "<group>"; };
+		3A987DDE1761CA5E006D5750 /* NetworkInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkInterface.m; path = Classes/Network/NetworkInterface.m; sourceTree = "<group>"; };
+		3A987DDF1761CA5E006D5750 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Classes/Network/Reachability.h; sourceTree = "<group>"; };
+		3A987DE01761CA5E006D5750 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Classes/Network/Reachability.m; sourceTree = "<group>"; };
+		3A987DE31761CBAD006D5750 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3A987DE51761CBB4006D5750 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		3AA5DFE217324F9A0002E657 /* testLocationResultsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = testLocationResultsVC.h; path = UI/iPhone/ViewControllers/testLocationResultsVC.h; sourceTree = "<group>"; };
 		3AA5DFE317324F9A0002E657 /* testLocationResultsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = testLocationResultsVC.m; path = UI/iPhone/ViewControllers/testLocationResultsVC.m; sourceTree = "<group>"; };
 		3AA5DFE717324FD90002E657 /* testLocationResultsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = testLocationResultsVC.xib; path = UI/iPhone/Resources/Nib/testLocationResultsVC.xib; sourceTree = "<group>"; };
@@ -403,6 +413,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A987DE61761CBB5006D5750 /* CFNetwork.framework in Frameworks */,
+				3A987DE41761CBAD006D5750 /* SystemConfiguration.framework in Frameworks */,
 				3A6455FF1754C8F200E90FCF /* MessageUI.framework in Frameworks */,
 				3A7B92B6173B8F560097A6CA /* MapKit.framework in Frameworks */,
 				3AC2D6BF1738E7B400B2A714 /* AddressBook.framework in Frameworks */,
@@ -575,6 +587,7 @@
 		3A255ABD172FCE1A0042875F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3A987DDC1761CA47006D5750 /* Network */,
 				3AB89FD2175CAAE200971558 /* Services */,
 				3A255ABE172FCE2B0042875F /* AppStorage.h */,
 				3A255ABF172FCE2B0042875F /* AppStorage.m */,
@@ -618,6 +631,8 @@
 		3A5E88A717156DD800C531CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A987DE51761CBB4006D5750 /* CFNetwork.framework */,
+				3A987DE31761CBAD006D5750 /* SystemConfiguration.framework */,
 				3A255AC1172FCEC10042875F /* libsqlite3.0.dylib */,
 				3A6455FE1754C8F200E90FCF /* MessageUI.framework */,
 				3A7B92B5173B8F560097A6CA /* MapKit.framework */,
@@ -669,6 +684,17 @@
 				3A5E88B617156DD800C531CA /* BlackBeauty-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3A987DDC1761CA47006D5750 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3A987DDD1761CA5E006D5750 /* NetworkInterface.h */,
+				3A987DDE1761CA5E006D5750 /* NetworkInterface.m */,
+				3A987DDF1761CA5E006D5750 /* Reachability.h */,
+				3A987DE01761CA5E006D5750 /* Reachability.m */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 		3AB7BEB8173395E000029A68 /* Low Res */ = {
@@ -982,6 +1008,8 @@
 				3AB89FDC175CB26700971558 /* DocumentViewerVC.m in Sources */,
 				3A5EC6B2175DD1D500F7C140 /* ProfileGuideCell.m in Sources */,
 				3A5EC6B6175DD22A00F7C140 /* ProfileGuideVC.m in Sources */,
+				3A987DE11761CA5E006D5750 /* NetworkInterface.m in Sources */,
+				3A987DE21761CA5E006D5750 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

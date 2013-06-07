@@ -83,7 +83,7 @@
         }
         else if(i==2)
         {
-            faqObject.question = @"Where can I find MSDS for BLACK BEAUTY abrasives?";
+            faqObject.question = @"Where can I find a MSDS for BLACK BEAUTY abrasives?";
             faqObject.answer = @"faq3";
         }
         else if(i==3)
@@ -159,6 +159,7 @@
     
     tempSelectionView.backgroundColor = [UIColor colorWithRed:245.0/255.0 green:132.0/255.0 blue:38.0/255.0 alpha:1];
     
+    
     [cell setSelectedBackgroundView:[tempSelectionView autorelease]];
     
     cell.textLabel.font = [UIFont fontWithName:@"Arial" size:11];
@@ -171,7 +172,8 @@
     
     if(indexPath.row%2 != 0)
     {
-        cell.contentView.backgroundColor = [UIColor colorWithRed:221.0/255.0 green:219.0/255.0 blue:209.0/255.0 alpha:1];
+       // cell.contentView.backgroundColor = [UIColor colorWithRed:221.0/255.0 green:219.0/255.0 blue:209.0/255.0 alpha:1];
+        cell.contentView.backgroundColor = GETTABLECELLBACKGROUND;
     }
     else
     {

@@ -57,6 +57,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{10, 175}, {300, 271}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -83,7 +84,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<string key="IBUINormalTitle">Call us:1-888-733-3646</string>
+						<string key="IBUINormalTitle">Call Us: 1-888-733-3646</string>
 						<object class="NSColor" key="IBUIHighlightedTitleColor" id="512278921">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>

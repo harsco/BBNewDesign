@@ -10,8 +10,12 @@
 #import "DefaultTableCell.h"
 #import "imageFullScreenVC.h"
 #import "contactUSVC.h"
+#import "Utilities.h"
+#import "NetworkInterface.h"
+#import "DataSource.h"
+#import "DocumentViewerVC.h"
 
-@interface App_ProductsScreenVC : UIViewController<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface App_ProductsScreenVC : UIViewController<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,dataSourceDelegate>
 {
     UIScrollView* productsScrollView;
     UITextView* bulletPointsView;
@@ -26,6 +30,9 @@
     
     UIWebView* productInfoWebView;
     UITextView* packagingView;
+    
+    UIAlertView* fetchingResultsAlert;
+    DataSource* dataSource;
 }
 
 

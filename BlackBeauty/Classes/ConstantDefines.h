@@ -11,6 +11,12 @@
 
 #import <Foundation/Foundation.h>
 
+//User Interface Related
+#define GETTABLECELLBACKGROUND [UIColor colorWithRed:(214.0)/255.0 green:(216.0)/255.0 blue:(211.0)/255.0 alpha:(1)]
+
+
+
+
 #define LOCATIONSDB @"location.db"
 #define DEG2RAD(degrees) (degrees * 0.01745327) // degrees * pi over 180
 #define RELEASE_TO_NIL(x) { if (x!=nil) { [x release]; x = nil; } }

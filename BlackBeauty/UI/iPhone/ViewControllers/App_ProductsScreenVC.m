@@ -35,7 +35,8 @@
     self.productsScrollView.delegate = self;
     [self.productsScrollView setScrollEnabled:YES];
     
-    
+    dataSource = [[DataSource alloc] init];
+    dataSource.delegate = self;
     
     
     
@@ -59,6 +60,12 @@
 }
 
 #pragma mark action methods
+
+
+-(void)viewDocument
+{
+    
+}
 
 -(IBAction)onImageZoomButtonClicked:(id)sender
 {
@@ -90,7 +97,7 @@
     self.gradesButton.titleLabel.textColor = [UIColor whiteColor];
     [self.packagingView setHidden:NO];
     
-    [self.userOptionsTable setFrame:CGRectMake(0, 470, 320, 300)];
+    [self.userOptionsTable setFrame:CGRectMake(0, 450, 320, 300)];
 }
 
 -(IBAction)onGradesButtonClicked:(id)sender
@@ -104,7 +111,7 @@
     self.packagingButton.titleLabel.textColor = [UIColor whiteColor];
     self.gradesButton.titleLabel.textColor = [UIColor blackColor];
     
-    [self.userOptionsTable setFrame:CGRectMake(0, 820, 320, 300)];
+    [self.userOptionsTable setFrame:CGRectMake(0, 800, 320, 300)];
 }
 
 
@@ -178,7 +185,7 @@
         
     else
     {
-        cell.optionLabel.text = @"Contact US/ Order now";
+        cell.optionLabel.text = @"Contact Us/ Order Now";
          cell.optionsIcon.image = [UIImage imageNamed:@"callus"];
     }
         
@@ -188,6 +195,24 @@
 {
     
 }
+
+#pragma mark DataSource Callbacks
+
+-(void)dataSourceDidDownloadFile
+{
+    [fetchingResultsAlert dismissWithClickedButtonIndex:0 animated:YES];
+    
+    [self viewDocument];
+    
+}
+
+-(void)dataSourceDidFailToDownload:(NSString*)error
+{
+    //throw error
+    
+    [Utilities showAlertOKWithTitle:@"Error Downloading File!!!" withMessage:error];
+}
+
 
 
 @end

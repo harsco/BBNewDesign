@@ -175,6 +175,9 @@
     
     tempSelectionView.backgroundColor = [UIColor colorWithRed:245.0/255.0 green:132.0/255.0 blue:38.0/255.0 alpha:1];
     
+    
+  
+    
     [cell setSelectedBackgroundView:[tempSelectionView autorelease]];
     
     cell.textLabel.text = [[contactLocationsArray objectAtIndex:indexPath.row] city];
@@ -183,7 +186,9 @@
     
     if(indexPath.row%2 != 0)
     {
-          cell.contentView.backgroundColor = [UIColor colorWithRed:221.0/255.0 green:219.0/255.0 blue:209.0/255.0 alpha:1];
+          //cell.contentView.backgroundColor = [UIColor colorWithRed:221.0/255.0 green:219.0/255.0 blue:209.0/255.0 alpha:1];
+        cell.contentView.backgroundColor = GETTABLECELLBACKGROUND;
+        
     }
     else
     {
