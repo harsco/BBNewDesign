@@ -41,6 +41,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    if([locationToShow.webSite length])
+    {
+        self.title = locationToShow.webSite;
+    }
+    else
     self.title = @"Location Details";
     
     self.storeName.text = locationToShow.name;
@@ -253,6 +258,18 @@
         [self.navigationController pushViewController:mapView animated:YES];
         [mapView release];
         
+    }
+    
+    else if(indexPath.row == 0)
+    {
+        if(locationToShow.loadingHours && locationToShow.officeHours)
+        {
+           
+            NSLog(@"%@%@",locationToShow.officeHours,locationToShow.loadingHours );
+            StoreHoursVC* storeHoursVC = [[StoreHoursVC alloc] initWithLocation:locationToShow];
+            [self.navigationController pushViewController:storeHoursVC animated:YES];
+            [storeHoursVC release];
+        }
     }
     
     

@@ -12,6 +12,7 @@
 #import <AddressBookUI/AddressBookUI.h>
 #import <MessageUI/MessageUI.h>
 #import "MapViewController.h"
+#import "StoreHoursVC.h"
 
 @interface LocationDetailsVC : UIViewController<UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate>
 {

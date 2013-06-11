@@ -33,7 +33,7 @@
     [self.packagingView setText:@"Available in 50lb bags at 60 bags per pallet and Jumbo bags loaded up to 1.5 tons (3,000lbs).  Shrink wrap available."];
     [self.bulletPointsView setText:@"• 100% post-consumer bottle glass                                                                • Less than 1% free silica                                                                                                   • Non-reactive, chemically inert                                                                                             • Uniform density                                                                                                            • Produces white metal surface                                                                                               • Increased visibility & production"];
     
-     self.thumbNailImage.image = [UIImage imageNamed:BBGLASSPRODUCTIMAGE];
+     self.thumbNailImage.image = [UIImage imageNamed:BBGLASSTHUMBS];
 }
 
 - (void)didReceiveMemoryWarning

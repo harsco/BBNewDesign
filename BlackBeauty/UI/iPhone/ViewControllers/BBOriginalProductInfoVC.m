@@ -28,7 +28,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = @"BLACK BEAUTY";
-    self.thumbNailImage.image = [UIImage imageNamed:BBORIGINALPRODUCTIMAGE];
+    self.thumbNailImage.image = [UIImage imageNamed:BBORIGINALTHUMBS];
     [self initVars];
     
 }

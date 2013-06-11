@@ -12,8 +12,10 @@
 @interface aboutUSVC : UIViewController
 {
     UINavigationBar* aboutUsHeader;
+    UIImageView* aboutUS;
 }
 
 @property(nonatomic,retain)IBOutlet UINavigationBar* aboutUsHeader;
+@property(nonatomic,retain)IBOutlet UIImageView* aboutUS;
 
 @end

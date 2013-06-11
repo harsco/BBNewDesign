@@ -13,7 +13,7 @@
 @end
 
 @implementation aboutUSVC
-@synthesize aboutUsHeader;
+@synthesize aboutUsHeader,aboutUS;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,6 +44,10 @@
     self.aboutUsHeader.tintColor = [UIColor colorWithRed:245.0/255.0 green:132.0/255.0 blue:38.0/255.0 alpha:1];
     
     self.aboutUsHeader.topItem.leftBarButtonItem = backButton;
+    
+    self.aboutUS.image = [UIImage imageNamed:@"about_us"]; //resizableImageWithCapInsets:UIEdgeInsetsMake(10, 7, 0, 7)];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

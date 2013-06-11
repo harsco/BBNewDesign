@@ -170,7 +170,7 @@ static sqlite3 *database = nil;
 {
      //NSString* sqlQuery = [[NSString alloc] initWithFormat:@"%@%@%@%@%@%@",@"select * from ",PC_POSITIONS,@" where ordernumber = '",order.orderNumber,@"'",@" order by positionint;"];
     
-    NSString* sqlQuery = @"select * from locations order by city";
+    NSString* sqlQuery = @"select * from harscolocations order by city";
     
     NSMutableArray* resultLocations = [[NSMutableArray alloc] init];
     
@@ -205,6 +205,7 @@ static sqlite3 *database = nil;
             // NSLog(@"zip is %@",[locationObject.stateAndZip stringByReplacingOccurrencesOfString:@"[0-9]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [ locationObject.stateAndZip length])]);
             
             locationObject.telephone = [NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 4)];
+            locationObject.webSite = [NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 5)];
             
             locationObject.email = [NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 6)];
             
@@ -212,8 +213,9 @@ static sqlite3 *database = nil;
             locationObject.Latitude = sqlite3_column_double(statement, 7);
             locationObject.Longitude = sqlite3_column_double(statement, 8);
             
-            locationObject.distanceFromInterestedLocation = sqlite3_column_double(statement, 9);
+            locationObject.loadingHours = [NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 9)];
             
+             locationObject.officeHours = [NSString stringWithFormat:@"%s",(char *)sqlite3_column_text(statement, 10)];
             
             
             

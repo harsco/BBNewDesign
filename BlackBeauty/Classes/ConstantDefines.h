@@ -23,9 +23,14 @@
 
 #define DEFAULT_EMAIL @"reedcs@harsco.com" 
 #define FAQNUMBER 6;
+
 #define BBORIGINALPRODUCTIMAGE @"black beauty product photo"
 #define BBGLASSPRODUCTIMAGE @"black beauty glass product photo"
 #define BBIRONPRODUCTIMAGE @"black beauty iron product photo"
+
+#define BBORIGINALTHUMBS @"original_thumbs"
+#define BBGLASSTHUMBS @"glass_thumbs"
+#define BBIRONTHUMBS @"iron-thumbs"
 
 
 #define BBORIGINALURL @"http://www.blackbeautyabrasives.com/admin/resources/cph-msds-na-black-beautyr-.pdf.pdf"

@@ -42,6 +42,12 @@
 		3A4119231757824A006C1B8B /* faq1.html in Resources */ = {isa = PBXBuildFile; fileRef = 3A4119201757824A006C1B8B /* faq1.html */; };
 		3A4119241757824A006C1B8B /* faq2.html in Resources */ = {isa = PBXBuildFile; fileRef = 3A4119211757824A006C1B8B /* faq2.html */; };
 		3A4119251757824A006C1B8B /* faq3.html in Resources */ = {isa = PBXBuildFile; fileRef = 3A4119221757824A006C1B8B /* faq3.html */; };
+		3A4EF33C1765B534009E165A /* glass_thumbs.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4EF3391765B533009E165A /* glass_thumbs.png */; };
+		3A4EF33D1765B534009E165A /* iron-thumbs.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4EF33A1765B534009E165A /* iron-thumbs.png */; };
+		3A4EF33E1765B534009E165A /* original_thumbs.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4EF33B1765B534009E165A /* original_thumbs.png */; };
+		3A4EF3401765B9A3009E165A /* about_harsco.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4EF33F1765B9A3009E165A /* about_harsco.png */; };
+		3A4EF34417660D94009E165A /* StoreHoursVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4EF34217660D92009E165A /* StoreHoursVC.m */; };
+		3A4EF34717660DCF009E165A /* StoreHoursVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A4EF34617660DCF009E165A /* StoreHoursVC.xib */; };
 		3A4FE6D217436ED500A83E7E /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4FE6D117436ED500A83E7E /* pin.png */; };
 		3A5208F617578857005113A6 /* faq4.html in Resources */ = {isa = PBXBuildFile; fileRef = 3A5208F317578856005113A6 /* faq4.html */; };
 		3A5208F717578857005113A6 /* faq5.html in Resources */ = {isa = PBXBuildFile; fileRef = 3A5208F417578857005113A6 /* faq5.html */; };
@@ -97,7 +103,6 @@
 		3A8D87771756226F0015B704 /* BBGlassProductInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D87761756226E0015B704 /* BBGlassProductInfoVC.m */; };
 		3A8D877A175622FA0015B704 /* BBIronProductInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D8779175622FA0015B704 /* BBIronProductInfoVC.m */; };
 		3A8D877D175647CE0015B704 /* about_us.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D877B175647CE0015B704 /* about_us.png */; };
-		3A8D877E175647CE0015B704 /* about_us@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D877C175647CE0015B704 /* about_us@2x.png */; };
 		3A8D878217564D0B0015B704 /* aboutHarscoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D878017564D090015B704 /* aboutHarscoVC.m */; };
 		3A8D878517564D410015B704 /* aboutHarscoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D878417564D410015B704 /* aboutHarscoVC.xib */; };
 		3A987DE11761CA5E006D5750 /* NetworkInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A987DDE1761CA5E006D5750 /* NetworkInterface.m */; };
@@ -229,6 +234,13 @@
 		3A4119201757824A006C1B8B /* faq1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = faq1.html; sourceTree = "<group>"; };
 		3A4119211757824A006C1B8B /* faq2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = faq2.html; sourceTree = "<group>"; };
 		3A4119221757824A006C1B8B /* faq3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = faq3.html; sourceTree = "<group>"; };
+		3A4EF3391765B533009E165A /* glass_thumbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glass_thumbs.png; path = UI/iPhone/Resources/images/glass_thumbs.png; sourceTree = "<group>"; };
+		3A4EF33A1765B534009E165A /* iron-thumbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iron-thumbs.png"; path = "UI/iPhone/Resources/images/iron-thumbs.png"; sourceTree = "<group>"; };
+		3A4EF33B1765B534009E165A /* original_thumbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = original_thumbs.png; path = UI/iPhone/Resources/images/original_thumbs.png; sourceTree = "<group>"; };
+		3A4EF33F1765B9A3009E165A /* about_harsco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = about_harsco.png; path = UI/iPhone/Resources/images/about_harsco.png; sourceTree = "<group>"; };
+		3A4EF34117660D92009E165A /* StoreHoursVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreHoursVC.h; path = UI/iPhone/ViewControllers/StoreHoursVC.h; sourceTree = "<group>"; };
+		3A4EF34217660D92009E165A /* StoreHoursVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreHoursVC.m; path = UI/iPhone/ViewControllers/StoreHoursVC.m; sourceTree = "<group>"; };
+		3A4EF34617660DCF009E165A /* StoreHoursVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoreHoursVC.xib; path = UI/iPhone/Resources/Nib/StoreHoursVC.xib; sourceTree = "<group>"; };
 		3A4FE6D117436ED500A83E7E /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin.png; path = UI/iPhone/Resources/images/pin.png; sourceTree = "<group>"; };
 		3A5208F317578856005113A6 /* faq4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = faq4.html; sourceTree = "<group>"; };
 		3A5208F417578857005113A6 /* faq5.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = faq5.html; sourceTree = "<group>"; };
@@ -302,7 +314,6 @@
 		3A8D8778175622F90015B704 /* BBIronProductInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBIronProductInfoVC.h; path = UI/iPhone/ViewControllers/BBIronProductInfoVC.h; sourceTree = "<group>"; };
 		3A8D8779175622FA0015B704 /* BBIronProductInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBIronProductInfoVC.m; path = UI/iPhone/ViewControllers/BBIronProductInfoVC.m; sourceTree = "<group>"; };
 		3A8D877B175647CE0015B704 /* about_us.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = about_us.png; path = UI/iPhone/Resources/images/about_us.png; sourceTree = "<group>"; };
-		3A8D877C175647CE0015B704 /* about_us@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "about_us@2x.png"; path = "UI/iPhone/Resources/images/about_us@2x.png"; sourceTree = "<group>"; };
 		3A8D877F17564D090015B704 /* aboutHarscoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aboutHarscoVC.h; path = UI/iPhone/ViewControllers/aboutHarscoVC.h; sourceTree = "<group>"; };
 		3A8D878017564D090015B704 /* aboutHarscoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = aboutHarscoVC.m; path = UI/iPhone/ViewControllers/aboutHarscoVC.m; sourceTree = "<group>"; };
 		3A8D878417564D410015B704 /* aboutHarscoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = aboutHarscoVC.xib; path = UI/iPhone/Resources/Nib/aboutHarscoVC.xib; sourceTree = "<group>"; };
@@ -492,6 +503,8 @@
 				3AB89FDA175CB26100971558 /* DocumentViewerVC.m */,
 				3A5EC6B3175DD22A00F7C140 /* ProfileGuideVC.h */,
 				3A5EC6B4175DD22A00F7C140 /* ProfileGuideVC.m */,
+				3A4EF34117660D92009E165A /* StoreHoursVC.h */,
+				3A4EF34217660D92009E165A /* StoreHoursVC.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -508,6 +521,7 @@
 		3A255A9F172FACA40042875F /* Nib */ = {
 			isa = PBXGroup;
 			children = (
+				3A4EF34617660DCF009E165A /* StoreHoursVC.xib */,
 				3A5EC6B8175DD25000F7C140 /* ProfileGuideVC.xib */,
 				3AB89FDE175CB2A000971558 /* DocumentViewerVC.xib */,
 				3AB89FCD175CA02700971558 /* MSDSVC.xib */,
@@ -540,6 +554,10 @@
 		3A255AA0172FACA90042875F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3A4EF33F1765B9A3009E165A /* about_harsco.png */,
+				3A4EF3391765B533009E165A /* glass_thumbs.png */,
+				3A4EF33A1765B534009E165A /* iron-thumbs.png */,
+				3A4EF33B1765B534009E165A /* original_thumbs.png */,
 				3AB89FB7175C7C4500971558 /* black beauty glass product photo.png */,
 				3AB89FB8175C7C4500971558 /* black beauty iron product photo.png */,
 				3AB89FB9175C7C4500971558 /* black beauty product photo.png */,
@@ -559,7 +577,6 @@
 				3A41190617573118006C1B8B /* viewonmap.png */,
 				3A41190717573118006C1B8B /* viewonmap@2x.png */,
 				3A8D877B175647CE0015B704 /* about_us.png */,
-				3A8D877C175647CE0015B704 /* about_us@2x.png */,
 				3A6DADF3174FACD5001959EA /* email.png */,
 				3A6DADF1174FAC3D001959EA /* mapViewIcon.png */,
 				3A6DADE8174F58BC001959EA /* clock.png */,
@@ -921,7 +938,6 @@
 				3A8D877317561DBF0015B704 /* grading_iron.html in Resources */,
 				3A8D877417561DBF0015B704 /* grading_original.html in Resources */,
 				3A8D877D175647CE0015B704 /* about_us.png in Resources */,
-				3A8D877E175647CE0015B704 /* about_us@2x.png in Resources */,
 				3A8D878517564D410015B704 /* aboutHarscoVC.xib in Resources */,
 				3A41190817573118006C1B8B /* callus.png in Resources */,
 				3A41190917573118006C1B8B /* callus@2x.png in Resources */,
@@ -958,6 +974,11 @@
 				3A5EC6B9175DD25000F7C140 /* ProfileGuideVC.xib in Resources */,
 				3A5EC6BB175DD8EB00F7C140 /* profileguide.htm in Resources */,
 				3A5EC6BD175DD96400F7C140 /* background.png in Resources */,
+				3A4EF33C1765B534009E165A /* glass_thumbs.png in Resources */,
+				3A4EF33D1765B534009E165A /* iron-thumbs.png in Resources */,
+				3A4EF33E1765B534009E165A /* original_thumbs.png in Resources */,
+				3A4EF3401765B9A3009E165A /* about_harsco.png in Resources */,
+				3A4EF34717660DCF009E165A /* StoreHoursVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1010,6 +1031,7 @@
 				3A5EC6B6175DD22A00F7C140 /* ProfileGuideVC.m in Sources */,
 				3A987DE11761CA5E006D5750 /* NetworkInterface.m in Sources */,
 				3A987DE21761CA5E006D5750 /* Reachability.m in Sources */,
+				3A4EF34417660D94009E165A /* StoreHoursVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

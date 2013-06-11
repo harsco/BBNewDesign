@@ -23,6 +23,8 @@
     NSString* telephone;
     NSString* email;
     NSString* webSite;
+    NSString* officeHours;
+    NSString* loadingHours;
     double distanceFromInterestedLocation;
 }
 
@@ -38,6 +40,8 @@
 @property(nonatomic,retain) NSString* stateAndZip;
 @property(nonatomic,retain) NSString* telephone;
 @property(nonatomic,retain) NSString* email;
+@property(nonatomic,retain) NSString* officeHours;
+@property(nonatomic,retain) NSString* loadingHours;
 @property(nonatomic,retain) NSString* webSite;
 @property(nonatomic) double distanceFromInterestedLocation;
 @end
