@@ -10,6 +10,8 @@
 #import "testLocationResultsVC.h"
 #import "LocationManager.h"
 #import "locationSearchResultsVC.h"
+#import "NetworkInterface.h"
+#import "Utilities.h"
 
 @interface LocatorToolUserInputVC : UIViewController
 {

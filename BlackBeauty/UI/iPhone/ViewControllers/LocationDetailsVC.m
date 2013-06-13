@@ -225,38 +225,54 @@
     {
         //Also include < iOS 6 mechanism Very important
         
-        NSDictionary *address = @{
-                                  (NSString *)kABPersonAddressStreetKey: locationToShow.streetAddress,
-                                  (NSString *)kABPersonAddressCityKey: locationToShow.city,
-                                  (NSString *)kABPersonAddressStateKey: locationToShow.state,
-                                  (NSString *)kABPersonAddressZIPKey: locationToShow.zipCode,
-                                  (NSString *)kABPersonAddressCountryCodeKey: @"US"
-                                  };
-        
-        
-        
-        MKPlacemark* placeMarkEndPoint = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(locationToShow.Latitude, locationToShow.Longitude) addressDictionary:address];
-        
-        
-        MKMapItem* itemForMap = [[[MKMapItem alloc] initWithPlacemark:placeMarkEndPoint] autorelease];
-        itemForMap.name = locationToShow.name;
-        
-         //to test driving distance providing 2 locations in production just need one location user location gets picked automatically as starting point
-          MKPlacemark* placeMarkStartPoint = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(40.878082, -74.137878) addressDictionary:nil];
-        
-        MKMapItem* secondItemForMap = [[[MKMapItem alloc] initWithPlacemark:placeMarkStartPoint] autorelease];
-        
-        [ MKMapItem openMapsWithItems:[NSArray arrayWithObjects:itemForMap,secondItemForMap, nil] launchOptions:[NSDictionary dictionaryWithObjectsAndKeys:MKLaunchOptionsDirectionsModeDriving,MKLaunchOptionsDirectionsModeKey, nil]];
-        
-        
-        //[itemForMap openInMapsWithLaunchOptions:[NSDictionary dictionaryWithObjectsAndKeys:MKLaunchOptionsDirectionsModeDriving,MKLaunchOptionsDirectionsModeKey, nil]];
+        if([[NetworkInterface getInstance] isInternetAvailable])
+        {
+            
+            NSDictionary *address = @{
+                                      (NSString *)kABPersonAddressStreetKey: locationToShow.streetAddress,
+                                      (NSString *)kABPersonAddressCityKey: locationToShow.city,
+                                      (NSString *)kABPersonAddressStateKey: locationToShow.state,
+                                      (NSString *)kABPersonAddressZIPKey: locationToShow.zipCode,
+                                      (NSString *)kABPersonAddressCountryCodeKey: @"US"
+                                      };
+            
+            
+            
+            MKPlacemark* placeMarkEndPoint = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(locationToShow.Latitude, locationToShow.Longitude) addressDictionary:address];
+            
+            
+            MKMapItem* itemForMap = [[[MKMapItem alloc] initWithPlacemark:placeMarkEndPoint] autorelease];
+            itemForMap.name = locationToShow.name;
+            
+            
+    #ifdef DEVELOPMENT
+            //to test driving distance providing 2 locations in production just need one location user location gets picked automatically as starting point
+            MKPlacemark* placeMarkStartPoint = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(40.878082, -74.137878) addressDictionary:nil];
+            
+            MKMapItem* secondItemForMap = [[[MKMapItem alloc] initWithPlacemark:placeMarkStartPoint] autorelease];
+            
+            [ MKMapItem openMapsWithItems:[NSArray arrayWithObjects:itemForMap,secondItemForMap, nil] launchOptions:[NSDictionary dictionaryWithObjectsAndKeys:MKLaunchOptionsDirectionsModeDriving,MKLaunchOptionsDirectionsModeKey, nil]];
+    #endif
+            
+    #ifndef DEVELOPMENT
+            [ MKMapItem openMapsWithItems:[NSArray arrayWithObjects:itemForMap, nil] launchOptions:[NSDictionary dictionaryWithObjectsAndKeys:MKLaunchOptionsDirectionsModeDriving,MKLaunchOptionsDirectionsModeKey, nil]];
+            
+            
+    #endif
+            
+            //[itemForMap openInMapsWithLaunchOptions:[NSDictionary dictionaryWithObjectsAndKeys:MKLaunchOptionsDirectionsModeDriving,MKLaunchOptionsDirectionsModeKey, nil]];
+        }
+        else
+        {
+            [Utilities showAlertOKWithTitle:NETWORKERROR withMessage:NETWORKERRORMESSAGE];
+        }
+
     }
     else if(indexPath.row == 4)
     {
         MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
         
-         [mailController setSubject:@"Black Beauty"];
-        // [mailController setMessageBody:@"my message" isHTML:NO];
+        [mailController setSubject:@"Black Beauty"];
         [mailController setToRecipients:[NSArray arrayWithObjects:locationToShow.email, nil]];
         
         mailController.mailComposeDelegate = self;
@@ -276,9 +292,17 @@
     }
     else if(indexPath.row == 3)
     {
-        MapViewController* mapView = [[MapViewController alloc] initWithLocation:locationToShow];
-        [self.navigationController pushViewController:mapView animated:YES];
-        [mapView release];
+        if([[NetworkInterface getInstance] isInternetAvailable])
+        {
+            MapViewController* mapView = [[MapViewController alloc] initWithLocation:locationToShow];
+            [self.navigationController pushViewController:mapView animated:YES];
+            [mapView release];
+        }
+        else
+        {
+            [Utilities showAlertOKWithTitle:NETWORKERROR withMessage:NETWORKERRORMESSAGE];
+        }
+        
         
     }
     

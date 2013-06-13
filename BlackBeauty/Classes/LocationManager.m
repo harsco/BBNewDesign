@@ -91,9 +91,47 @@
 }
 
 
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    
+    NSLog(@"count is %d",[locations count]);
+    CLLocation* newLocation = [locations objectAtIndex:[locations count]-1];
+    
+    NSTimeInterval locationAge = -[newLocation.timestamp timeIntervalSinceNow];
+    
+    if (locationAge > 5.0)
+    {
+   
+        return;
+    }
+    
+    if (newLocation.horizontalAccuracy < 0)
+    {
+        
+        return;
+    }
+    
+    NSString *latitude = [NSString stringWithFormat:@"%f", newLocation.coordinate.latitude];
+    NSString *longitude = [NSString stringWithFormat:@"%f", newLocation.coordinate.longitude];
+    
+    NSLog(@"dLatitude : %@", latitude);
+    NSLog(@"dLongitude : %@",longitude);
+    
+    [locationManager stopUpdatingLocation];
+    
+    locationDesired = [[Location alloc] init];
+    
+    locationDesired.Latitude = newLocation.coordinate.latitude;
+    locationDesired.Longitude = newLocation.coordinate.longitude;
+    
+    [self doReverseGeoCoding:locationDesired];
 
 
--(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+}
+
+
+
+/*-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     
     //Checking if the location info is recent and accurate
@@ -140,11 +178,15 @@
     
    
     
-}
+}*/
 
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error
 {
+    
+    [locationManager stopUpdatingLocation];
+    locationManager.delegate = nil;
+    
     if(delegate && [delegate respondsToSelector:@selector(didFailToGetDesiredLocations:)])
     {
         [delegate didFailToGetDesiredLocations:[error localizedDescription]];
@@ -298,14 +340,14 @@
                                  locationDesired.Latitude = coordinate.latitude;
                                  locationDesired.Longitude = coordinate.longitude;
                                  locationDesired.name = placemark.locality;
-                                 NSLog(@"name is %@", locationDesired.name);
-                                 NSLog(@"placemark.ISOcountryCode %@",placemark.ISOcountryCode);
-                                 NSLog(@"placemark.country %@",placemark.country);
-                                 NSLog(@"placemark.locality %@",placemark.locality);
-                                 NSLog(@"placemark.administrativeArea %@",placemark.administrativeArea);
-                                 NSLog(@"placemark.subadmin %@",placemark.subAdministrativeArea);
-                                 NSLog(@"placemark.subLocality %@",placemark.subLocality);
-                                 NSLog(@"placemark.subThoroughfare %@",placemark.subThoroughfare);
+//                                 NSLog(@"name is %@", locationDesired.name);
+//                                 NSLog(@"placemark.ISOcountryCode %@",placemark.ISOcountryCode);
+//                                 NSLog(@"placemark.country %@",placemark.country);
+//                                 NSLog(@"placemark.locality %@",placemark.locality);
+//                                 NSLog(@"placemark.administrativeArea %@",placemark.administrativeArea);
+//                                 NSLog(@"placemark.subadmin %@",placemark.subAdministrativeArea);
+//                                 NSLog(@"placemark.subLocality %@",placemark.subLocality);
+//                                 NSLog(@"placemark.subThoroughfare %@",placemark.subThoroughfare);
                                  
                                  [self updateLocationsSetToUI];
 

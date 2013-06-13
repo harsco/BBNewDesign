@@ -8,25 +8,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BlackBeauty/UI/iPhone/ViewControllers/locationSearchResultsVC.m"
-         timestampString = "392733131.178147"
+         timestampString = "392826475.88459"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "354"
-         endingLineNumber = "354"
-         landmarkName = "-mapView:viewForAnnotation:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "BlackBeauty/UI/iPhone/ViewControllers/locationSearchResultsVC.m"
-         timestampString = "392733131.178147"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "432"
-         endingLineNumber = "432"
-         landmarkName = "-mapView:viewForAnnotation:"
+         startingLineNumber = "234"
+         endingLineNumber = "234"
+         landmarkName = "-mapViewDidFailLoadingMap:withError:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

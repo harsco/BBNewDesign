@@ -26,6 +26,10 @@
 #define DEFAULT_EMAIL @"reedcs@harsco.com" 
 #define FAQNUMBER 6;
 
+
+#define NETWORKERROR @"Network Error !!"
+#define NETWORKERRORMESSAGE @"No Active Internet Connection Found. Please go to settings and enable a Network Connection"
+
 #define BBORIGINALPRODUCTIMAGE @"black beauty product photo"
 #define BBGLASSPRODUCTIMAGE @"black beauty glass product photo"
 #define BBIRONPRODUCTIMAGE @"black beauty iron product photo"
@@ -42,6 +46,10 @@
 #define BBORIGINAL @"BBOriginal.pdf"
 #define BBGLASS    @"BBGlass.pdf"
 #define BBIRON     @"BBIron.pdf"
+
+
+//uncomment only if you are a developer
+#define DEVELOPMENT 1
 
 typedef enum  {
     

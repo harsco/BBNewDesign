@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DataDownloadOperation.h"
+#import "NetworkInterface.h"
 
 @protocol dataSourceDelegate;
 
@@ -27,6 +28,7 @@
 
 @optional
 
+-(void)didStartDownloadingFile;
 -(void)dataSourceDidDownloadFile;
 -(void)dataSourceDidFailToDownload:(NSString*)error;
 

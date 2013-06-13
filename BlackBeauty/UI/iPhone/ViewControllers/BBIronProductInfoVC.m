@@ -76,17 +76,6 @@
         {
             if([[NetworkInterface getInstance] isInternetAvailable])
             {
-                fetchingResultsAlert = [[UIAlertView alloc] initWithTitle:@"Downloading File" message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
-                
-                UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc]
-                                                    initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-                loading.frame=CGRectMake(125, 50, 36, 36);
-                [loading startAnimating];
-                [fetchingResultsAlert addSubview:loading];
-                
-                [loading release];
-                
-                [fetchingResultsAlert show];
                 [dataSource downloadMSDSFileForProduct:BBIron];
             }
             else

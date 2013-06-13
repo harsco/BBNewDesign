@@ -20,6 +20,8 @@
     
     UIAlertView* fetchingResultsAlert;
     
+    DataSource* dataSource;
+    
     int type;
     
 }

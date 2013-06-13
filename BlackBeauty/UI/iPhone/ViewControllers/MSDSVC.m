@@ -43,6 +43,14 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:245.0/255.0 green:132.0/255.0 blue:38.0/255.0 alpha:1];
     
+        
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
     if([[Utilities getInstance] isFileExists:BBORIGINAL])
     {
         [self.downloadLabel1 setHidden:NO];
@@ -56,7 +64,15 @@
         [self.downloadLabel3 setHidden:NO];
     }
     
-    
+    dataSource = [[DataSource alloc] init];
+    dataSource.delegate = self;
+
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [dataSource release];
+    dataSource.delegate = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,88 +89,37 @@
 
 -(IBAction)onMSDSDownloadClicked:(UIButton*)sender
 {
-    NSLog(@"tag is %d",sender.tag);
-    DataSource* dataSource = [[DataSource alloc] init];
-    dataSource.delegate = self;
     type = sender.tag;
     
     if(sender.tag == 0)
     {
         if([[Utilities getInstance] isFileExists:BBORIGINAL])
-        {
             [self viewDocument];
-        }
+        
         else
-        {
-            fetchingResultsAlert = [[UIAlertView alloc] initWithTitle:@"Downloading File" message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
-            
-            UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc]
-                                                initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-            loading.frame=CGRectMake(125, 50, 36, 36);
-            [loading startAnimating];
-            [fetchingResultsAlert addSubview:loading];
-            
-            [loading release];
-            
-            [fetchingResultsAlert show];
-            
-             [dataSource downloadMSDSFileForProduct:BBOriginal];
-        }
-       
+            [dataSource downloadMSDSFileForProduct:BBOriginal];
         
     }
     
     else if (sender.tag == 1)
     {
         if([[Utilities getInstance] isFileExists:BBGLASS])
-        {
             [self viewDocument];
-        }
+        
         else
-        {
-            fetchingResultsAlert = [[UIAlertView alloc] initWithTitle:@"Downloading File" message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
-            
-            UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc]
-                                                initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-            loading.frame=CGRectMake(125, 50, 36, 36);
-            [loading startAnimating];
-            [fetchingResultsAlert addSubview:loading];
-            
-            [loading release];
-            
-            [fetchingResultsAlert show];
             [dataSource downloadMSDSFileForProduct:BBGlass];
 
-        }
+        
     }
         
     else if (sender.tag == 2)
     {
         if([[Utilities getInstance] isFileExists:BBIRON])
-        {
             [self viewDocument];
-        }
-        else
-        {
-            fetchingResultsAlert = [[UIAlertView alloc] initWithTitle:@"Downloading File" message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
-            
-            UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc]
-                                                initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-            loading.frame=CGRectMake(125, 50, 36, 36);
-            [loading startAnimating];
-            [fetchingResultsAlert addSubview:loading];
-            
-            [loading release];
-            
-            [fetchingResultsAlert show];
-            [dataSource downloadMSDSFileForProduct:BBIron];
-        }
-            
-    }
         
-    
-   
-
+        else
+            [dataSource downloadMSDSFileForProduct:BBIron];
+    }
     
 }
 
@@ -164,52 +129,52 @@
 
 -(void)viewDocument
 {
+    NSString *resourceDocPath = [[NSString alloc] initWithString:[[[[NSBundle mainBundle]  resourcePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"Documents"]];
+    NSString *filePath;
+    
     if(type == BBOriginal)
     {
         [self.downloadLabel1 setHidden:NO];
-        NSString *resourceDocPath = [[NSString alloc] initWithString:[[[[NSBundle mainBundle]  resourcePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"Documents"]];
+        filePath = [resourceDocPath stringByAppendingPathComponent:BBORIGINAL];
         
-        NSLog(@"path for resource is %@",resourceDocPath);
-        
-        NSString *filePath = [resourceDocPath stringByAppendingPathComponent:BBORIGINAL];
-        DocumentViewerVC* pdfViewer = [[DocumentViewerVC alloc] initWithFilePath:filePath];
-        [self.navigationController pushViewController:pdfViewer animated:YES];
-        
-        [pdfViewer release];
     }
     else if(type == BBGlass)
     {
         [self.downloadLabel2 setHidden:NO];
-        NSString *resourceDocPath = [[NSString alloc] initWithString:[[[[NSBundle mainBundle]  resourcePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"Documents"]];
+        filePath = [resourceDocPath stringByAppendingPathComponent:BBGLASS];
         
-        NSLog(@"path for resource is %@",resourceDocPath);
-        
-        NSString *filePath = [resourceDocPath stringByAppendingPathComponent:BBGLASS];
-        DocumentViewerVC* pdfViewer = [[DocumentViewerVC alloc] initWithFilePath:filePath];
-        
-        [self.navigationController pushViewController:pdfViewer animated:YES];
-        
-        [pdfViewer release];
     }
-    else if(type == BBIron)
+    else 
     {
         [self.downloadLabel3 setHidden:NO];
-        NSString *resourceDocPath = [[NSString alloc] initWithString:[[[[NSBundle mainBundle]  resourcePath] stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"Documents"]];
-        
-        NSLog(@"path for resource is %@",resourceDocPath);
-        
-        NSString *filePath = [resourceDocPath stringByAppendingPathComponent:BBIRON];
-        DocumentViewerVC* pdfViewer = [[DocumentViewerVC alloc] initWithFilePath:filePath];
-        [self.navigationController pushViewController:pdfViewer animated:YES];
-        
-        [pdfViewer release];
+        filePath = [resourceDocPath stringByAppendingPathComponent:BBIRON];
     }
     
+    DocumentViewerVC* pdfViewer = [[DocumentViewerVC alloc] initWithFilePath:filePath];
+    [self.navigationController pushViewController:pdfViewer animated:YES];
+    [filePath release];
+    [pdfViewer release];
 
 }
 
 
 #pragma mark DataSource Callbacks
+
+-(void)didStartDownloadingFile
+{
+    fetchingResultsAlert = [[UIAlertView alloc] initWithTitle:@"Downloading File" message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+    
+    UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc]
+                                        initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    loading.frame=CGRectMake(125, 50, 36, 36);
+    [loading startAnimating];
+    [fetchingResultsAlert addSubview:loading];
+    
+    [loading release];
+    
+    [fetchingResultsAlert show];
+
+}
 
 -(void)dataSourceDidDownloadFile
 {

@@ -77,9 +77,18 @@
 //    [self.navigationController pushViewController:testVC animated:YES];
 //    [testVC release];
     
-    locationSearchResultsVC* resultsVC = [[locationSearchResultsVC alloc] initWithUserPreference:MyLocation];
-    [self.navigationController pushViewController:resultsVC animated:YES];
-    [resultsVC release];
+    if([[NetworkInterface getInstance] isInternetAvailable])
+    {
+        locationSearchResultsVC* resultsVC = [[locationSearchResultsVC alloc] initWithUserPreference:MyLocation];
+        [self.navigationController pushViewController:resultsVC animated:YES];
+        [resultsVC release];
+        
+    }
+    else
+    {
+        [Utilities showAlertOKWithTitle:NETWORKERROR withMessage:NETWORKERRORMESSAGE];
+    }
+    
     
 }
 
@@ -88,10 +97,16 @@
 //    testLocationResultsVC* testVC = [[testLocationResultsVC alloc] initWithUserPreference:OtherLocation];
 //    [self.navigationController pushViewController:testVC animated:YES];
 //    [testVC release];
-    
-    locationSearchResultsVC* resultsVC = [[locationSearchResultsVC alloc] initWithUserPreference:OtherLocation];
-    [self.navigationController pushViewController:resultsVC animated:YES];
-    [resultsVC release];
+    if([[NetworkInterface getInstance] isInternetAvailable])
+    {
+        locationSearchResultsVC* resultsVC = [[locationSearchResultsVC alloc] initWithUserPreference:OtherLocation];
+        [self.navigationController pushViewController:resultsVC animated:YES];
+        [resultsVC release];
+    }
+    else
+    {
+        [Utilities showAlertOKWithTitle:NETWORKERROR withMessage:NETWORKERRORMESSAGE];
+    }
 }
 
 @end

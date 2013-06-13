@@ -90,6 +90,11 @@
     }
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.mapView setDelegate:nil];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -130,7 +135,14 @@
    {
         if(sender.selectedSegmentIndex == 0)
         {
+            if([[NetworkInterface getInstance] isInternetAvailable])
             [self reloadMapData];
+            else
+            {
+                sender.selectedSegmentIndex = 1;
+                [Utilities showAlertOKWithTitle:NETWORKERROR withMessage:NETWORKERRORMESSAGE];
+            }
+                
         }
         
         else if(sender.selectedSegmentIndex == 1)
@@ -150,20 +162,27 @@
 {
     // NSLog(@"text is %@",searchBar.text);
     
-    [searchBar resignFirstResponder];
-    fetchingResultsAlert = [[UIAlertView alloc] initWithTitle:@"Fetching Locations" message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
-    
-    UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc]
-                                        initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    loading.frame=CGRectMake(125, 50, 36, 36);
-    [loading startAnimating];
-    [fetchingResultsAlert addSubview:loading];
-    
-    [loading release];
-    
-    [fetchingResultsAlert show];
+    if([[NetworkInterface getInstance] isInternetAvailable])
+    {
+        [searchBar resignFirstResponder];
+        fetchingResultsAlert = [[UIAlertView alloc] initWithTitle:@"Fetching Locations" message:@"" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+        
+        UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc]
+                                            initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        loading.frame=CGRectMake(125, 50, 36, 36);
+        [loading startAnimating];
+        [fetchingResultsAlert addSubview:loading];
+        
+        [loading release];
+        
+        [fetchingResultsAlert show];
 
-    [locManagerObj getResellersNearThePlace:searchBar.text];
+        [locManagerObj getResellersNearThePlace:searchBar.text];
+    }
+    else
+    {
+        [Utilities showAlertOKWithTitle:NETWORKERROR withMessage:NETWORKERRORMESSAGE];
+    }
     
 }
 
@@ -212,7 +231,7 @@
 }
 - (void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error
 {
-    
+    [Utilities showAlertOKWithTitle:@"MAP ERROR!!!" withMessage:[error localizedDescription]];
 }
 
 
@@ -255,9 +274,6 @@
         
     }
     
-    
-    
-    
     CLLocationCoordinate2D topLeftCoord;
     topLeftCoord.latitude = -18.000000;
     topLeftCoord.longitude = -62.361014;
@@ -284,6 +300,7 @@
     region = [mapView regionThatFits:region];
     [self.mapView setHidden:NO];
     [self.locationsListView setHidden:YES];
+    [self.mapView setDelegate:self];
     [self.mapView setRegion:region animated:YES];
     
     // NSLog(@"count of annotations is %d",[annotationArray count]);

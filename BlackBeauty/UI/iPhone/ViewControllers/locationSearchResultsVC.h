@@ -13,6 +13,8 @@
 #import "BBStoreAnnotation.h"
 #import "UserLocationAnnotation.h"
 #import "LocationDetailsVC.h"
+#import "NetworkInterface.h"
+#import "Utilities.h"
 
 @interface locationSearchResultsVC : UIViewController<locationSearchResultsProtocol,UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,MKMapViewDelegate>
 {

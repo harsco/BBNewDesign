@@ -13,33 +13,48 @@
 
 -(void)downloadMSDSFileForProduct:(PRODUCTTYPE)type
 {
-    fileType = type;
-    NSOperationQueue* testQueue = [[NSOperationQueue alloc] init];
-    [testQueue setMaxConcurrentOperationCount:1];
-    DataDownloadOperation* loginOp;
     
-    if(type == BBOriginal)
+    if([[NetworkInterface getInstance] isInternetAvailable])
     {
-        loginOp = [[DataDownloadOperation alloc] initWithURL:[NSURL URLWithString:BBORIGINALURL]];
-        loginOp.delegate = self;
-        [testQueue addOperation:loginOp];
+        fileType = type;
+        NSOperationQueue* testQueue = [[NSOperationQueue alloc] init];
+        [testQueue setMaxConcurrentOperationCount:1];
+        DataDownloadOperation* loginOp;
+        
+        if(type == BBOriginal)
+        {
+            loginOp = [[DataDownloadOperation alloc] initWithURL:[NSURL URLWithString:BBORIGINALURL]];
+            loginOp.delegate = self;
+            [testQueue addOperation:loginOp];
+        }
+         
+        else if(type == BBGlass)
+        {
+            loginOp = [[DataDownloadOperation alloc] initWithURL:[NSURL URLWithString:BBGLASSURL]];
+            loginOp.delegate = self;
+            [testQueue addOperation:loginOp];
+        }
+          
+        else
+        {
+            loginOp = [[DataDownloadOperation alloc] initWithURL:[NSURL URLWithString:BBIRONURL]];
+            loginOp.delegate = self;
+            [testQueue addOperation:loginOp];
+        }
+        
+        if(self.delegate && [self.delegate respondsToSelector:@selector(didStartDownloadingFile)])
+        {
+            [delegate didStartDownloadingFile];
+        }
+        
     }
-     
-    else if(type == BBGlass)
-    {
-        loginOp = [[DataDownloadOperation alloc] initWithURL:[NSURL URLWithString:BBGLASSURL]];
-        loginOp.delegate = self;
-        [testQueue addOperation:loginOp];
-    }
-      
     else
     {
-        loginOp = [[DataDownloadOperation alloc] initWithURL:[NSURL URLWithString:BBIRONURL]];
-        loginOp.delegate = self;
-        [testQueue addOperation:loginOp];
+        if(self.delegate && [self.delegate respondsToSelector:@selector(dataSourceDidFailToDownload:)])
+        {
+            [delegate dataSourceDidFailToDownload:NETWORKERRORMESSAGE];
+        }
     }
-        
-   
 }
 
 

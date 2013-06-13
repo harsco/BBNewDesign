@@ -13,6 +13,8 @@
 #import <MessageUI/MessageUI.h>
 #import "MapViewController.h"
 #import "StoreHoursVC.h"
+#import "NetworkInterface.h"
+#import "Utilities.h"
 
 @interface LocationDetailsVC : UIViewController<UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate>
 {
