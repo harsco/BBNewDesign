@@ -52,10 +52,11 @@
     self.storeStreet.text = locationToShow.streetAddress;
     self.storeCity.text = [locationToShow.city stringByAppendingFormat:@"%@%@",@", ",locationToShow.stateAndZip];
     
-    if(![locationToShow.email length])
-    {
-        [userOptionsTable setFrame:CGRectMake(10, 140, 300, 243)];
-    }
+
+    
+    
+    
+    
     //self.storeCity.text = locationToShow.c
 }
 
@@ -65,10 +66,31 @@
     
 }
 
+
 -(void)viewWillAppear:(BOOL)animated
 {
     NSIndexPath *tableSelection = [self.userOptionsTable indexPathForSelectedRow];
     [self.userOptionsTable deselectRowAtIndexPath:tableSelection animated:NO];
+    
+   
+    if(IsRunningTallPhone())
+    {
+        if(![locationToShow.email length])
+        {
+            [userOptionsTable setFrame:CGRectMake(10, 140, 300, 200)];
+        }
+        else
+        [self.userOptionsTable setFrame:CGRectMake(10, 140, 300, 250)];
+    }
+    else
+    {
+        if(![locationToShow.email length])
+        {
+            [userOptionsTable setFrame:CGRectMake(10, 140, 300, 200)];
+        }
+        
+    }
+    
 }
 
 

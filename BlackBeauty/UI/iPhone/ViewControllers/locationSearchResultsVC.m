@@ -82,6 +82,12 @@
     NSIndexPath *tableSelection = [self.locationsListView indexPathForSelectedRow];
     [self.locationsListView deselectRowAtIndexPath:tableSelection animated:NO];
     [self.locationSearchBar resignFirstResponder];
+    
+    if(IsRunningTallPhone())
+    {
+        [self.locationsListView setFrame:CGRectMake(0, 44, 320, 282)];
+        [self.mapView setFrame:CGRectMake(0, 46, 320, 500)];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -173,19 +179,36 @@
 #pragma mark Map View Methods
 
 
-MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords, NSUInteger coordCount) {
+/*MKCoordinateRegion*/MKMapRect coordinateRegionForCoordinates(CLLocationCoordinate2D *coords, NSUInteger coordCount) {
     MKMapRect r = MKMapRectNull;
     for (NSUInteger i=0; i < coordCount; ++i) {
         MKMapPoint p = MKMapPointForCoordinate(coords[i]);
         r = MKMapRectUnion(r, MKMapRectMake(p.x, p.y, 0, 0));
     }
-    return MKCoordinateRegionForMapRect(r);
+    return r;
+    //return MKCoordinateRegionForMapRect(r);
+}
+
+
+
+-(MKMapRect) getMapRectUsingAnnotations:(NSArray*)theAnnotations
+{
+    MKMapPoint points[[theAnnotations count]];
+    
+    for (int i = 0; i < [theAnnotations count]; i++) {
+        //MapAnnotation *annotation = [theAnnotations objectAtIndex:i];
+        points[i] = MKMapPointForCoordinate([[theAnnotations objectAtIndex:i] coordinate]);
+    }
+    
+    MKPolygon *poly = [MKPolygon polygonWithPoints:points count:[theAnnotations count]];
+    
+    return [poly boundingMapRect];
 }
 
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
 {
-    if(segmentedControl.selectedSegmentIndex == 0)
-    [self prepareAnnotatinView];
+//    if(segmentedControl.selectedSegmentIndex == 0)
+//    [self prepareAnnotatinView];
 }
 - (void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error
 {
@@ -195,23 +218,82 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
 
 -(void)reloadMapData
 {
-    CLLocationCoordinate2D array[5];
     
-    CLLocationCoordinate2D tempCoordinate = CLLocationCoordinate2DMake(hotLocation.Latitude, hotLocation.Longitude);
+    //for new method
     
-    array[0] = tempCoordinate;
+  //  NSLog(@"count of annotations is %d",[annotationArray count]);
     
+    
+    if(annotationArray)
+    {
+        [annotationArray release];
+        annotationArray = nil;
+    }
+    
+    [self.mapView removeAnnotations:mapAnnotaionsArray];
+    
+    annotationArray = [[NSMutableArray alloc] init];
+    
+    CLLocationCoordinate2D tempCoordinate1 = CLLocationCoordinate2DMake(hotLocation.Latitude, hotLocation.Longitude);
+        
+    UserLocationAnnotation* userLocationAnnotation = [[UserLocationAnnotation alloc] initWithLocation:tempCoordinate1];
+    userLocationAnnotation.title = hotLocation.name;
+    [annotationArray addObject:userLocationAnnotation];
+    
+    
+ 
     for(int i=0;i<[locationsDetails count];i++)
     {
         CLLocationCoordinate2D tempCoordinate = CLLocationCoordinate2DMake([[locationsDetails objectAtIndex:i] Latitude], [[locationsDetails objectAtIndex:i] Longitude]);
+        BBStoreAnnotation* annotationView = [[BBStoreAnnotation alloc] initWithLocation:tempCoordinate];
+        annotationView.title = [[locationsDetails objectAtIndex:i] name];
+        annotationView.subTitle = [[locationsDetails objectAtIndex:i] telephone];
         
-        array[i+1] = tempCoordinate;
+        [annotationArray addObject:annotationView];
+        
+        [annotationView release];
+        
     }
     
+    
+    
+    
+    CLLocationCoordinate2D topLeftCoord;
+    topLeftCoord.latitude = -18.000000;
+    topLeftCoord.longitude = -62.361014;
+    
+    CLLocationCoordinate2D bottomRightCoord;
+    bottomRightCoord.latitude = 48.987386;
+    bottomRightCoord.longitude = -124.626080;
+    
+    for(id<MKAnnotation> annotation in annotationArray) {
+        topLeftCoord.longitude = fmin(topLeftCoord.longitude, annotation.coordinate.longitude);
+        topLeftCoord.latitude = fmax(topLeftCoord.latitude, annotation.coordinate.latitude);
+        bottomRightCoord.longitude = fmax(bottomRightCoord.longitude, annotation.coordinate.longitude);
+        bottomRightCoord.latitude = fmin(bottomRightCoord.latitude, annotation.coordinate.latitude);
+    }
+    
+    MKCoordinateRegion region;
+    region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5;
+    region.center.longitude = topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5;
+    region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * 1.1;
+    
+    // Add a little extra space on the sides
+    region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.1;
+    
+    region = [mapView regionThatFits:region];
     [self.mapView setHidden:NO];
     [self.locationsListView setHidden:YES];
-    [self.mapView setRegion:coordinateRegionForCoordinates(array,5)];
-
+    [self.mapView setRegion:region animated:YES];
+    
+    // NSLog(@"count of annotations is %d",[annotationArray count]);
+    
+    mapAnnotaionsArray = [[NSArray alloc] initWithArray:annotationArray];
+    
+    [self.mapView removeAnnotations:mapAnnotaionsArray];
+    [self.mapView addAnnotations:mapAnnotaionsArray];
+    
+   
 }
 
 -(void)prepareAnnotatinView
@@ -271,17 +353,17 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
     
     if([annotation isKindOfClass:[UserLocationAnnotation class]])
     {
-        static NSString *BridgeAnnotationIdentifier = @"userAnnotationIdentifier";
+        static NSString *UserAnnotationIdentifier = @"userAnnotationIdentifier";
         
         //NSLog(@"annotation");
         
         MKPinAnnotationView *pinView =
-        (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:BridgeAnnotationIdentifier];
+        (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:UserAnnotationIdentifier];
         if (pinView == nil)
         {
             // if an existing pin view was not available, create one
             MKPinAnnotationView *customPinView = [[MKPinAnnotationView alloc]
-                                                  initWithAnnotation:annotation reuseIdentifier:BridgeAnnotationIdentifier];
+                                                  initWithAnnotation:annotation reuseIdentifier:UserAnnotationIdentifier];
             
             customPinView.pinColor = MKPinAnnotationColorRed;
             customPinView.animatesDrop = NO;
@@ -318,6 +400,9 @@ MKCoordinateRegion coordinateRegionForCoordinates(CLLocationCoordinate2D *coords
         
         MKPinAnnotationView *pinView =
         (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:BridgeAnnotationIdentifier];
+        
+       // MKPinAnnotationView* pinView = nil;
+        
         if (pinView == nil)
         {
             // if an existing pin view was not available, create one

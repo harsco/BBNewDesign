@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0C10E117676EC000BA7DB3 /* msds_download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A0C10E017676EC000BA7DB3 /* msds_download@2x.png */; };
 		3A1804811737DBB60042D3FD /* LocatorToolUserInputVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A18047F1737DBB60042D3FD /* LocatorToolUserInputVC.m */; };
 		3A1804841737DC010042D3FD /* LocatorToolUserInputVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1804831737DC010042D3FD /* LocatorToolUserInputVC.xib */; };
 		3A1804861737DCCE0042D3FD /* green_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A1804851737DCCE0042D3FD /* green_button.png */; };
@@ -23,6 +24,8 @@
 		3A255AC5172FCFC30042875F /* ConstantDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A255AC4172FCFC30042875F /* ConstantDefines.m */; };
 		3A255AC8172FD9C70042875F /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A255AC7172FD9C70042875F /* LocationManager.m */; };
 		3A255ACA172FD9E90042875F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A255AC9172FD9E90042875F /* CoreLocation.framework */; };
+		3A3B6AE81767384F005270EB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3B6AE71767384F005270EB /* Default-568h@2x.png */; };
+		3A3B6AEA17675EA2005270EB /* contactUS_Tall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3B6AE917675EA2005270EB /* contactUS_Tall.xib */; };
 		3A41190817573118006C1B8B /* callus.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4118FC17573118006C1B8B /* callus.png */; };
 		3A41190917573118006C1B8B /* callus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4118FD17573118006C1B8B /* callus@2x.png */; };
 		3A41190A17573118006C1B8B /* emailus.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A4118FE17573118006C1B8B /* emailus.png */; };
@@ -32,7 +35,6 @@
 		3A41190E17573118006C1B8B /* hours.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A41190217573118006C1B8B /* hours.png */; };
 		3A41190F17573118006C1B8B /* hours@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A41190317573118006C1B8B /* hours@2x.png */; };
 		3A41191017573118006C1B8B /* msds_download.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A41190417573118006C1B8B /* msds_download.png */; };
-		3A41191117573118006C1B8B /* msds_download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A41190517573118006C1B8B /* msds_download@2x.png */; };
 		3A41191217573118006C1B8B /* viewonmap.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A41190617573118006C1B8B /* viewonmap.png */; };
 		3A41191317573118006C1B8B /* viewonmap@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A41190717573118006C1B8B /* viewonmap@2x.png */; };
 		3A41191517575B7B006C1B8B /* harsco_banner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A41191417575B7B006C1B8B /* harsco_banner.jpg */; };
@@ -84,8 +86,6 @@
 		3A6DADEB174F58BC001959EA /* directions.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6DADE9174F58BC001959EA /* directions.png */; };
 		3A6DADED174FA649001959EA /* contactUSCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6DADEC174FA648001959EA /* contactUSCell.xib */; };
 		3A6DADF0174FA671001959EA /* contactUSCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6DADEF174FA671001959EA /* contactUSCell.m */; };
-		3A6DADF2174FAC3D001959EA /* mapViewIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6DADF1174FAC3D001959EA /* mapViewIcon.png */; };
-		3A6DADF4174FACD5001959EA /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A6DADF3174FACD5001959EA /* email.png */; };
 		3A6E7A4A174CE02400052941 /* locationSearchResultsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6E7A48174CE02200052941 /* locationSearchResultsVC.m */; };
 		3A6E7A4D174CE06000052941 /* locationSearchResultsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6E7A4C174CE05E00052941 /* locationSearchResultsVC.xib */; };
 		3A6E7A4F174CF0D100052941 /* storeResultsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6E7A4E174CF0D000052941 /* storeResultsTableCell.xib */; };
@@ -102,7 +102,6 @@
 		3A8D877417561DBF0015B704 /* grading_original.html in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D877217561DBF0015B704 /* grading_original.html */; };
 		3A8D87771756226F0015B704 /* BBGlassProductInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D87761756226E0015B704 /* BBGlassProductInfoVC.m */; };
 		3A8D877A175622FA0015B704 /* BBIronProductInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D8779175622FA0015B704 /* BBIronProductInfoVC.m */; };
-		3A8D877D175647CE0015B704 /* about_us.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D877B175647CE0015B704 /* about_us.png */; };
 		3A8D878217564D0B0015B704 /* aboutHarscoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8D878017564D090015B704 /* aboutHarscoVC.m */; };
 		3A8D878517564D410015B704 /* aboutHarscoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A8D878417564D410015B704 /* aboutHarscoVC.xib */; };
 		3A987DE11761CA5E006D5750 /* NetworkInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A987DDE1761CA5E006D5750 /* NetworkInterface.m */; };
@@ -112,6 +111,7 @@
 		3AA5DFE517324F9A0002E657 /* testLocationResultsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5DFE317324F9A0002E657 /* testLocationResultsVC.m */; };
 		3AA5DFE817324FD90002E657 /* testLocationResultsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AA5DFE717324FD90002E657 /* testLocationResultsVC.xib */; };
 		3AA5DFEB1732A0B90002E657 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5DFEA1732A0B90002E657 /* Location.m */; };
+		3AB002F01769D7FC001DACEA /* aboutBB.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB002EF1769D7FC001DACEA /* aboutBB.png */; };
 		3AB7BEC61733961A00029A68 /* app_icon_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7BEBA1733961A00029A68 /* app_icon_iphone.png */; };
 		3AB7BEC71733961A00029A68 /* background_image_iphone_lowres.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7BEBB1733961A00029A68 /* background_image_iphone_lowres.png */; };
 		3AB7BEC81733961A00029A68 /* LocatorToolIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7BEBC1733961A00029A68 /* LocatorToolIcon.png */; };
@@ -190,6 +190,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A0C10E017676EC000BA7DB3 /* msds_download@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "msds_download@2x.png"; path = "UI/iPhone/Resources/images/msds_download@2x.png"; sourceTree = "<group>"; };
 		3A18047E1737DBB50042D3FD /* LocatorToolUserInputVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocatorToolUserInputVC.h; path = UI/iPhone/ViewControllers/LocatorToolUserInputVC.h; sourceTree = "<group>"; };
 		3A18047F1737DBB60042D3FD /* LocatorToolUserInputVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocatorToolUserInputVC.m; path = UI/iPhone/ViewControllers/LocatorToolUserInputVC.m; sourceTree = "<group>"; };
 		3A1804831737DC010042D3FD /* LocatorToolUserInputVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LocatorToolUserInputVC.xib; path = UI/iPhone/Resources/Nib/LocatorToolUserInputVC.xib; sourceTree = "<group>"; };
@@ -213,6 +214,8 @@
 		3A255AC6172FD9C60042875F /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationManager.h; path = Classes/LocationManager.h; sourceTree = "<group>"; };
 		3A255AC7172FD9C70042875F /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationManager.m; path = Classes/LocationManager.m; sourceTree = "<group>"; };
 		3A255AC9172FD9E90042875F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3A3B6AE71767384F005270EB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		3A3B6AE917675EA2005270EB /* contactUS_Tall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = contactUS_Tall.xib; path = UI/iPhone/Resources/Nib/contactUS_Tall.xib; sourceTree = "<group>"; };
 		3A4118FC17573118006C1B8B /* callus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = callus.png; path = UI/iPhone/Resources/images/callus.png; sourceTree = "<group>"; };
 		3A4118FD17573118006C1B8B /* callus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "callus@2x.png"; path = "UI/iPhone/Resources/images/callus@2x.png"; sourceTree = "<group>"; };
 		3A4118FE17573118006C1B8B /* emailus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = emailus.png; path = UI/iPhone/Resources/images/emailus.png; sourceTree = "<group>"; };
@@ -222,7 +225,6 @@
 		3A41190217573118006C1B8B /* hours.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hours.png; path = UI/iPhone/Resources/images/hours.png; sourceTree = "<group>"; };
 		3A41190317573118006C1B8B /* hours@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hours@2x.png"; path = "UI/iPhone/Resources/images/hours@2x.png"; sourceTree = "<group>"; };
 		3A41190417573118006C1B8B /* msds_download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = msds_download.png; path = UI/iPhone/Resources/images/msds_download.png; sourceTree = "<group>"; };
-		3A41190517573118006C1B8B /* msds_download@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "msds_download@2x.png"; path = "UI/iPhone/Resources/images/msds_download@2x.png"; sourceTree = "<group>"; };
 		3A41190617573118006C1B8B /* viewonmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = viewonmap.png; path = UI/iPhone/Resources/images/viewonmap.png; sourceTree = "<group>"; };
 		3A41190717573118006C1B8B /* viewonmap@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "viewonmap@2x.png"; path = "UI/iPhone/Resources/images/viewonmap@2x.png"; sourceTree = "<group>"; };
 		3A41191417575B7B006C1B8B /* harsco_banner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = harsco_banner.jpg; path = UI/iPhone/Resources/images/harsco_banner.jpg; sourceTree = "<group>"; };
@@ -288,8 +290,6 @@
 		3A6DADEC174FA648001959EA /* contactUSCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = contactUSCell.xib; path = UI/iPhone/Resources/Nib/contactUSCell.xib; sourceTree = "<group>"; };
 		3A6DADEE174FA671001959EA /* contactUSCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = contactUSCell.h; path = UI/iPhone/Views/contactUSCell.h; sourceTree = "<group>"; };
 		3A6DADEF174FA671001959EA /* contactUSCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = contactUSCell.m; path = UI/iPhone/Views/contactUSCell.m; sourceTree = "<group>"; };
-		3A6DADF1174FAC3D001959EA /* mapViewIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapViewIcon.png; path = UI/iPhone/Resources/images/mapViewIcon.png; sourceTree = "<group>"; };
-		3A6DADF3174FACD5001959EA /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = email.png; path = UI/iPhone/Resources/images/email.png; sourceTree = "<group>"; };
 		3A6E7A47174CE02100052941 /* locationSearchResultsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = locationSearchResultsVC.h; path = UI/iPhone/ViewControllers/locationSearchResultsVC.h; sourceTree = "<group>"; };
 		3A6E7A48174CE02200052941 /* locationSearchResultsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = locationSearchResultsVC.m; path = UI/iPhone/ViewControllers/locationSearchResultsVC.m; sourceTree = "<group>"; };
 		3A6E7A4C174CE05E00052941 /* locationSearchResultsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = locationSearchResultsVC.xib; path = UI/iPhone/Resources/Nib/locationSearchResultsVC.xib; sourceTree = "<group>"; };
@@ -313,7 +313,6 @@
 		3A8D87761756226E0015B704 /* BBGlassProductInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBGlassProductInfoVC.m; path = UI/iPhone/ViewControllers/BBGlassProductInfoVC.m; sourceTree = "<group>"; };
 		3A8D8778175622F90015B704 /* BBIronProductInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBIronProductInfoVC.h; path = UI/iPhone/ViewControllers/BBIronProductInfoVC.h; sourceTree = "<group>"; };
 		3A8D8779175622FA0015B704 /* BBIronProductInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBIronProductInfoVC.m; path = UI/iPhone/ViewControllers/BBIronProductInfoVC.m; sourceTree = "<group>"; };
-		3A8D877B175647CE0015B704 /* about_us.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = about_us.png; path = UI/iPhone/Resources/images/about_us.png; sourceTree = "<group>"; };
 		3A8D877F17564D090015B704 /* aboutHarscoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = aboutHarscoVC.h; path = UI/iPhone/ViewControllers/aboutHarscoVC.h; sourceTree = "<group>"; };
 		3A8D878017564D090015B704 /* aboutHarscoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = aboutHarscoVC.m; path = UI/iPhone/ViewControllers/aboutHarscoVC.m; sourceTree = "<group>"; };
 		3A8D878417564D410015B704 /* aboutHarscoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = aboutHarscoVC.xib; path = UI/iPhone/Resources/Nib/aboutHarscoVC.xib; sourceTree = "<group>"; };
@@ -328,6 +327,7 @@
 		3AA5DFE717324FD90002E657 /* testLocationResultsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = testLocationResultsVC.xib; path = UI/iPhone/Resources/Nib/testLocationResultsVC.xib; sourceTree = "<group>"; };
 		3AA5DFE91732A0B80002E657 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = Classes/Location.h; sourceTree = "<group>"; };
 		3AA5DFEA1732A0B90002E657 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = Classes/Location.m; sourceTree = "<group>"; };
+		3AB002EF1769D7FC001DACEA /* aboutBB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aboutBB.png; path = UI/iPhone/Resources/images/aboutBB.png; sourceTree = "<group>"; };
 		3AB7BEBA1733961A00029A68 /* app_icon_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = app_icon_iphone.png; path = "UI/iPhone/Resources/images/Low Res/app_icon_iphone.png"; sourceTree = "<group>"; };
 		3AB7BEBB1733961A00029A68 /* background_image_iphone_lowres.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_image_iphone_lowres.png; path = "UI/iPhone/Resources/images/Low Res/background_image_iphone_lowres.png"; sourceTree = "<group>"; };
 		3AB7BEBC1733961A00029A68 /* LocatorToolIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LocatorToolIcon.png; path = "UI/iPhone/Resources/images/Low Res/LocatorToolIcon.png"; sourceTree = "<group>"; };
@@ -547,6 +547,7 @@
 				3A6E7A4E174CF0D000052941 /* storeResultsTableCell.xib */,
 				3A6DADEC174FA648001959EA /* contactUSCell.xib */,
 				3AB89FE0175CDAE600971558 /* ProfileGuideCell.xib */,
+				3A3B6AE917675EA2005270EB /* contactUS_Tall.xib */,
 			);
 			name = Nib;
 			sourceTree = "<group>";
@@ -554,6 +555,8 @@
 		3A255AA0172FACA90042875F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3AB002EF1769D7FC001DACEA /* aboutBB.png */,
+				3A0C10E017676EC000BA7DB3 /* msds_download@2x.png */,
 				3A4EF33F1765B9A3009E165A /* about_harsco.png */,
 				3A4EF3391765B533009E165A /* glass_thumbs.png */,
 				3A4EF33A1765B534009E165A /* iron-thumbs.png */,
@@ -573,12 +576,8 @@
 				3A41190217573118006C1B8B /* hours.png */,
 				3A41190317573118006C1B8B /* hours@2x.png */,
 				3A41190417573118006C1B8B /* msds_download.png */,
-				3A41190517573118006C1B8B /* msds_download@2x.png */,
 				3A41190617573118006C1B8B /* viewonmap.png */,
 				3A41190717573118006C1B8B /* viewonmap@2x.png */,
-				3A8D877B175647CE0015B704 /* about_us.png */,
-				3A6DADF3174FACD5001959EA /* email.png */,
-				3A6DADF1174FAC3D001959EA /* mapViewIcon.png */,
 				3A6DADE8174F58BC001959EA /* clock.png */,
 				3A6DADE9174F58BC001959EA /* directions.png */,
 				3A6DADE4174F4B0B001959EA /* arrow.png */,
@@ -625,6 +624,7 @@
 		3A5E889C17156DD800C531CA = {
 			isa = PBXGroup;
 			children = (
+				3A3B6AE71767384F005270EB /* Default-568h@2x.png */,
 				3AB89FBF175C806100971558 /* app_icon_iphone_highres_new.png */,
 				3AB89FBD175C805700971558 /* app_icon_iphone_lowres_new.png */,
 				3A255AB7172FC0F00042875F /* app_icon_iphone.png */,
@@ -931,13 +931,10 @@
 				3A6DADEA174F58BC001959EA /* clock.png in Resources */,
 				3A6DADEB174F58BC001959EA /* directions.png in Resources */,
 				3A6DADED174FA649001959EA /* contactUSCell.xib in Resources */,
-				3A6DADF2174FAC3D001959EA /* mapViewIcon.png in Resources */,
-				3A6DADF4174FACD5001959EA /* email.png in Resources */,
 				3A6456061754EBCA00E90FCF /* contactUSVC.xib in Resources */,
 				3A8D8770175617840015B704 /* grading_glass.html in Resources */,
 				3A8D877317561DBF0015B704 /* grading_iron.html in Resources */,
 				3A8D877417561DBF0015B704 /* grading_original.html in Resources */,
-				3A8D877D175647CE0015B704 /* about_us.png in Resources */,
 				3A8D878517564D410015B704 /* aboutHarscoVC.xib in Resources */,
 				3A41190817573118006C1B8B /* callus.png in Resources */,
 				3A41190917573118006C1B8B /* callus@2x.png in Resources */,
@@ -948,7 +945,6 @@
 				3A41190E17573118006C1B8B /* hours.png in Resources */,
 				3A41190F17573118006C1B8B /* hours@2x.png in Resources */,
 				3A41191017573118006C1B8B /* msds_download.png in Resources */,
-				3A41191117573118006C1B8B /* msds_download@2x.png in Resources */,
 				3A41191217573118006C1B8B /* viewonmap.png in Resources */,
 				3A41191317573118006C1B8B /* viewonmap@2x.png in Resources */,
 				3A41191517575B7B006C1B8B /* harsco_banner.jpg in Resources */,
@@ -979,6 +975,10 @@
 				3A4EF33E1765B534009E165A /* original_thumbs.png in Resources */,
 				3A4EF3401765B9A3009E165A /* about_harsco.png in Resources */,
 				3A4EF34717660DCF009E165A /* StoreHoursVC.xib in Resources */,
+				3A3B6AE81767384F005270EB /* Default-568h@2x.png in Resources */,
+				3A3B6AEA17675EA2005270EB /* contactUS_Tall.xib in Resources */,
+				3A0C10E117676EC000BA7DB3 /* msds_download@2x.png in Resources */,
+				3AB002F01769D7FC001DACEA /* aboutBB.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1127,7 +1127,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BlackBeauty/BlackBeauty-Prefix.pch";
 				INFOPLIST_FILE = "BlackBeauty/BlackBeauty-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1139,7 +1139,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BlackBeauty/BlackBeauty-Prefix.pch";
 				INFOPLIST_FILE = "BlackBeauty/BlackBeauty-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

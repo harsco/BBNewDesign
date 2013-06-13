@@ -13,7 +13,7 @@
 @end
 
 @implementation faqDetailsVC
-@synthesize faqAnswerView,faqQuestion,emailUSButton,callUSButton,callImage,emailImage;
+@synthesize faqAnswerView,faqQuestion,emailUSButton,callUSButton,callImage,emailImage,faqToBeShown,faqQuestionView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,21 +45,46 @@
     self.faqQuestion.text = faqToBeShown.question;
     self.title = @"BLACK BEAUTY Help";
     
-    if([faqToBeShown.question isEqualToString:@"How do I order BLACK BEAUTY abrasives?"])
-    {
-        [self.callUSButton setHidden:NO];
-        [self.emailUSButton setHidden:NO];
-        [self.callImage setHidden:NO];
-        [self.emailImage setHidden:NO];
-        
-        [self.faqAnswerView setFrame:CGRectMake(10, 75, 300, 220)];
-        
-    }
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    
+    if([faqToBeShown.question isEqualToString:@"How do I order BLACK BEAUTY abrasives?"])
+    {
+        
+        
+        [self.callUSButton setHidden:NO];
+        [self.emailUSButton setHidden:NO];
+        [self.callImage setHidden:NO];
+        [self.emailImage setHidden:NO];
+        
+        if(IsRunningTallPhone())
+        {
+            [self.callUSButton setFrame:CGRectMake(10, 355, 300, 60)];
+            [self.callImage setFrame:CGRectMake(20, 365, 40, 40)];
+            
+            [self.emailUSButton setFrame:CGRectMake(10, 425, 300, 60)];
+            [self.emailImage setFrame:CGRectMake(20, 435, 40, 40)];
+        }
+        
+        if(!IsRunningTallPhone())
+            [self.faqAnswerView setFrame:CGRectMake(10, 75, 300, 220)];
+        
+    }
+    
+    else
+    {
+        if(IsRunningTallPhone())
+        {
+            [self.faqAnswerView setFrame:CGRectMake(10, 100, 300, 270)];
+            [self.faqQuestionView setFrame:CGRectMake(10, 35, 300, 60)];
+        }
+    }
+    
+   
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -111,6 +136,7 @@
         }
         else{
             //throw error
+            [Utilities showAlertOKWithTitle:@"Email Alert!!!" withMessage:@"Your device donot support Email or Email has not been set up"];
             
         }
     }
@@ -130,13 +156,52 @@
 
 #pragma mark Webview Delegate
 
+
+
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
 
 {
-	NSURL *loadURL = [[request URL] retain];
 	
+    
+    if ([request.URL.scheme isEqualToString:@"mailto"]) {
+         // make sure this device is setup to send email
+         if ([MFMailComposeViewController canSendMail]) {
+             // create mail composer object
+             MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+             
+             // make this view the delegate
+             mailer.mailComposeDelegate = self;
+             
+             // set recipient
+             [mailer setToRecipients:[NSArray arrayWithObjects:DEFAULT_EMAIL,@"inquiries-m@harsco.com",nil]];
+             
+             // generate message body
+             NSString *body = @"Hello Recently Used your Black Beauty App and need some assistance with";
+             
+             // add to users signature
+             [mailer setMessageBody:body isHTML:NO];
+             
+             // present user with composer screen
+             [self presentViewController:mailer animated:YES completion:nil];
+             
+             // release composer object
+             [mailer release];
+             
+             
+         } else {
+             // alert to user there is no email support
+             [Utilities showAlertOKWithTitle:@"Email Alert!!!" withMessage:@"Email has not been set up"];
+             
+             
+         }
+        
+        return NO;
+    }
+	
+    
+    NSURL *loadURL = [[request URL] retain];
 	// Check navigationType. Else this alert will be visible on every load of UIWebView
-	if ( /*( [ [ loadURL scheme ] isEqualToString: @"http "] || [ [ loadURL scheme ] isEqualToString: @"https" ] ) &&*/  navigationType == UIWebViewNavigationTypeLinkClicked )
+	if ( ( [ [ loadURL scheme ] isEqualToString: @"http"] || [ [ loadURL scheme ] isEqualToString: @"https" ] ) &&  navigationType == UIWebViewNavigationTypeLinkClicked )
     {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Open In Safari???"
                                                                message :@"Clicking YES would leave the Black Beauty App and launch Safari."
@@ -165,6 +230,11 @@
 	{
 		[[UIApplication sharedApplication] openURL:savedLink];
 	}
+    else
+    {
+        [savedLink release];
+        savedLink = nil;
+    }
 }
 
 @end

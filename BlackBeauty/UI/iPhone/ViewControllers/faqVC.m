@@ -29,7 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    UIImage* image = [UIImage imageNamed:@"grid@2x"];
+    UIImage* image = [UIImage imageNamed:@"grid"];
     CGRect frameimg = CGRectMake(0, 0, 25, 25);
     
     UIButton *button = [[UIButton alloc] initWithFrame:frameimg];
@@ -54,6 +54,11 @@
 {
     NSIndexPath *tableSelection = [self.faqListView indexPathForSelectedRow];
     [self.faqListView deselectRowAtIndexPath:tableSelection animated:NO];
+    
+    if(IsRunningTallPhone())
+    {
+        [self.faqListView setFrame:CGRectMake(0, 20, 320, 400)];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -186,11 +191,13 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    faqDetailsVC* faqInfoScreen = [[faqDetailsVC alloc] initWithFAQ:[faqArray objectAtIndex:indexPath.row]];
-
-    [self.navigationController pushViewController:faqInfoScreen animated:YES];
     
-    [faqInfoScreen release];
+        faqDetailsVC* faqInfoScreen = [[faqDetailsVC alloc] initWithFAQ:[faqArray objectAtIndex:indexPath.row]];
+        
+        [self.navigationController pushViewController:faqInfoScreen animated:YES];
+        
+        [faqInfoScreen release];
+    
 }
 
 

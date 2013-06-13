@@ -15,7 +15,9 @@
 #define GETTABLECELLBACKGROUND [UIColor colorWithRed:(214.0)/255.0 green:(216.0)/255.0 blue:(211.0)/255.0 alpha:(1)]
 
 
+#define IsRunningTallPhone() ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone && [UIScreen mainScreen].bounds.size.height == 568)
 
+#define IS_RETINA ([[UIScreen mainScreen] respondsToSelector:@selector(displayLinkWithTarget:selector:)] && ([UIScreen mainScreen].scale == 2.0))
 
 #define LOCATIONSDB @"location.db"
 #define DEG2RAD(degrees) (degrees * 0.01745327) // degrees * pi over 180

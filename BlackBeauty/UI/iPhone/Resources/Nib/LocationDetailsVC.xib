@@ -116,7 +116,7 @@
 					<object class="IBUILabel" id="789453300">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{18, 85}, {290, 21}}</string>
+						<string key="NSFrame">{{17, 85}, {290, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSNextKeyView" ref="596579491"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -138,6 +138,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{10, 140}, {300, 293}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<reference key="IBUIBackgroundColor" ref="625613030"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -147,7 +148,7 @@
 						<int key="IBUISeparatorStyle">1</int>
 						<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 						<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
-						<float key="IBUIRowHeight">44</float>
+						<float key="IBUIRowHeight">50</float>
 						<float key="IBUISectionHeaderHeight">22</float>
 						<float key="IBUISectionFooterHeight">22</float>
 					</object>

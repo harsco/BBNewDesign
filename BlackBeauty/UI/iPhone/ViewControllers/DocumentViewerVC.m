@@ -45,7 +45,7 @@
     if(isProfileGuide)
     {
         self.title = @"Profile Guide";
-        UIImage* image = [UIImage imageNamed:@"grid@2x"];
+        UIImage* image = [UIImage imageNamed:@"grid"];
         CGRect frameimg = CGRectMake(0, 0, 25, 25);
         
         UIButton *button = [[UIButton alloc] initWithFrame:frameimg];
@@ -63,11 +63,22 @@
     [self openFile];
 }
 
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    if(IsRunningTallPhone())
+    {
+        [self.documentViewer setFrame:CGRectMake(0, 0, 320, 568)];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 
 -(void)openFile

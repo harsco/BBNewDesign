@@ -56,6 +56,7 @@
         [self.downloadLabel3 setHidden:NO];
     }
     
+    
 }
 
 - (void)didReceiveMemoryWarning

@@ -50,6 +50,20 @@
     self.title = [NSString stringWithFormat:@"%@%@%@",locationToShow.city,@", ",locationToShow.state] ;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
+    if(IsRunningTallPhone())
+    [self.mapView setFrame:CGRectMake(0, 0, 320, 568)];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.mapView setDelegate:nil];
+    self.mapView = nil;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

@@ -13,7 +13,7 @@
 @end
 
 @implementation aboutUSVC
-@synthesize aboutUsHeader,aboutUS;
+@synthesize aboutUsHeader,aboutBBImage,backGroundImage,aboutUsText,aboutUsLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,9 +45,28 @@
     
     self.aboutUsHeader.topItem.leftBarButtonItem = backButton;
     
-    self.aboutUS.image = [UIImage imageNamed:@"about_us"]; //resizableImageWithCapInsets:UIEdgeInsetsMake(10, 7, 0, 7)];
+   // self.aboutBBImage.image = [UIImage imageNamed:@"about_us"]; //resizableImageWithCapInsets:UIEdgeInsetsMake(10, 7, 0, 7)];
     
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    
+    if(IsRunningTallPhone())
+    {
+        [self.backGroundImage setFrame:CGRectMake(0, 0, 320, 568)];
+        [self.aboutBBImage setFrame:CGRectMake(5, 80, 310, 100)];
+        [self.aboutUsLabel setFrame:CGRectMake(24, 190, 273, 21)];
+        [self.aboutUsText setFrame:CGRectMake(5, 223, 310, 320)];
+        
+        self.aboutUsText.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+    }
+    else
+    {
+        //[self.aboutUS setFrame:CGRectMake(5, 50, 310, 90)];
+    }
 }
 
 - (void)didReceiveMemoryWarning

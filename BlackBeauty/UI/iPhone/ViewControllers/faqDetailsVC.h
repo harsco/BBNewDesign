@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "FAQ.h"
 #import <MessageUI/MessageUI.h>
+#import "Utilities.h"
 
 @interface faqDetailsVC : UIViewController<UIWebViewDelegate,MFMailComposeViewControllerDelegate>
 {
     UIWebView* faqAnswerView;
+    UIView* faqQuestionView;
     UILabel* faqQuestion;
     UIButton* callUSButton;
     UIButton* emailUSButton;
@@ -24,10 +26,12 @@
 
 @property(nonatomic,retain)IBOutlet UIWebView* faqAnswerView;
 @property(nonatomic,retain)IBOutlet UILabel* faqQuestion;
+@property(nonatomic,retain)IBOutlet UIView* faqQuestionView;
 @property(nonatomic,retain)IBOutlet UIButton* callUSButton;
 @property(nonatomic,retain)IBOutlet UIButton* emailUSButton;
 @property(nonatomic,retain)IBOutlet UIImageView* callImage;
 @property(nonatomic,retain)IBOutlet UIImageView* emailImage;
+@property(nonatomic,retain)FAQ* faqToBeShown;
 
 
 -(IBAction)onCallUsClicked:(id)sender;

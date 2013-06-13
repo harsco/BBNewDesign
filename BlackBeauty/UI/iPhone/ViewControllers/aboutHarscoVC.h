@@ -11,6 +11,7 @@
 @interface aboutHarscoVC : UIViewController
 {
     UINavigationBar* aboutUsHeader;
+    
 }
 @property(nonatomic,retain)IBOutlet UINavigationBar* aboutUsHeader;
 

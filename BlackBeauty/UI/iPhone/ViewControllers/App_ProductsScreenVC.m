@@ -51,6 +51,14 @@
 {
     NSIndexPath *tableSelection = [self.userOptionsTable indexPathForSelectedRow];
     [self.userOptionsTable deselectRowAtIndexPath:tableSelection animated:NO];
+    if(IsRunningTallPhone())
+    {
+        [self.productsScrollView setFrame:CGRectMake(0.0, 0.0, 320, 568)];
+    }
+    else
+    {
+        [self.productsScrollView setFrame:CGRectMake(0.0, 0.0, 320, 460)];
+    }
 }
 
 - (void)didReceiveMemoryWarning
